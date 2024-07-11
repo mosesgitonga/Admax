@@ -1,46 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
-import "./Index.css"
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
+import './Index.css'; 
 
-const IndexPage = () => {
-    const WhatsAppLink = () => {
-        const phoneNumber = "+254711279189"; 
-        const message = "Hello, I would like to know more about your services."; 
+const Header = () => {
 
-        return (
-          <a
-            href={`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ textDecoration: 'none', color: 'inherit' }}
-          >
-            <FontAwesomeIcon icon={faWhatsapp} size="2x" style={{ color: '#25D366' }} />
-          </a>
-        );
-      };
-      
-    return (
-        <div className="container">
-            <header>
-                <div>
-                    <div className="bar">
-                        <h1>Admax Tech Solutions</h1>
-                        <div className="top-nav">
-                            <div>Home</div>
-                            <div>Services</div>
-                            <div>About Us</div>
-                            <div>Contact Us</div>
-                            <WhatsAppLink className="whatsappLink" />
-                        </div>
-                    </div>
-                </div>
-            </header>
-            <section className="body">
+  const phoneNumber = "+254711279189"; 
+  const message = "Hello, I would like to know more about your services."; 
 
-            </section>
-        </div>
-    )
-}
+  const openWhatsApp = () => {
+    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
+  };
 
-export default IndexPage;
+  // State for mobile menu toggle
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  return (
+    <header className="header">
+      <div className="bar">
+        <h1>Admax Tech Solutions</h1>
+      </div>
+      <nav className={`top-nav ${menuOpen ? 'open' : ''}`}>
+        <div>Home</div>
+        <div>Services</div>
+        <div>Our Gallery</div>
+        <div>About Us</div>
+        <div>Contact Us</div>
+        <a
+          href="#"
+          onClick={openWhatsApp}
+          className="whatsappLink"
+          aria-label="Open WhatsApp"
+        >
+          <FontAwesomeIcon icon={faWhatsapp} size="2x" style={{ color: '#25D366' }} />
+        </a>
+      </nav>
+      <div className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
+        {menuOpen ? <FontAwesomeIcon icon={faTimes} /> : <FontAwesomeIcon icon={faBars} />}
+      </div>
+    </header>
+  );
+};
+
+export default Header;
