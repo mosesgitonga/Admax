@@ -1,0 +1,70 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+/* Container styling */
+.container {
+    width: 100%;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+  
+  /* Header styling */
+  header {
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-bottom: 1px solid #e7e7e7;
+  }
+  
+  /* Header contacts styling */
+  .header-contacts {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 0px;;
+    margin-bottom: 10px;
+  }
+  
+  /* Bar styling */
+  .bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .bar h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #d44d4d;
+  }
+  
+  /* Top navigation styling */
+  .top-nav {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .top-nav div {
+    cursor: pointer;
+    padding: 10px 15px;
+    color: #444;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .top-nav div:hover {
+    background-color: #e7e7e7;
+    color: #000;
+  }
+  
+  /* WhatsApp link styling */
+  .whatsappLink {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Body section styling */
+  .body {
+    padding: 20px;
+  }
+  
