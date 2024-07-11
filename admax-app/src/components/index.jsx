@@ -4,6 +4,7 @@ const IndexPage = () => {
     return (
         <div>
             Hello world :)
+            <p>Progress will appear here</p>
         </div>
     )
 }
