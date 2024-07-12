@@ -4,6 +4,7 @@ import Solutions from "./body/Solutions";
 import Testimonies from "./body/Testimonies";
 import Header from ".";
 import "./Body.css"
+import Footer from "./footer";
 
 const Body = () => {
     return (
@@ -20,6 +21,7 @@ const Body = () => {
                     style={{ border: "0", width: "100%", height: "400px" }} 
                     loading="lazy" 
                 ></iframe>
+                <Footer />
             </div>
         </>
     )
