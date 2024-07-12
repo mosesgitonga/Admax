@@ -14,7 +14,6 @@ const Header = () => {
         <h1>Admax Tech Solutions</h1>
       </div>
       <NavBar menuOpen={menuOpen} />
-      
       <div className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
         {menuOpen ? <FontAwesomeIcon icon={faTimes} /> : <FontAwesomeIcon icon={faBars} />}
       </div>
