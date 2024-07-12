@@ -1,0 +1,13 @@
+.geo-map {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    width: 100%;
+  }
+  
+  .geo-map > div {
+    width: 100%;
+    height: 400px; /* Adjust the height as needed */
+  }
+  
