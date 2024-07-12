@@ -3,12 +3,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import './Header.css';
 import NavBar from './NavBar';
-import WhatsAppLink from './WhatsAppLink';
+import WhatsAppLink from "./WhatsAppLink";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
+    <div>
     <header className="header">
       <div className="bar">
         <h1>Admax Tech Solutions</h1>
@@ -18,6 +19,7 @@ const Header = () => {
         {menuOpen ? <FontAwesomeIcon icon={faTimes} /> : <FontAwesomeIcon icon={faBars} />}
       </div>
     </header>
+    </div>
   );
 };
 
