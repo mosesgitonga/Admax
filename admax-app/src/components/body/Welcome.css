@@ -11,7 +11,7 @@
     justify-content: center;
     text-align: center;
     padding: 20px;
-    background-image: linear-gradient(rgba(221, 41, 41, 0.925), rgb(0, 0, 0), #2a44db), url("");
+    background-image: linear-gradient(rgba(255, 0, 0, 0.767), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5), #0057fa), url("../../../public/repair.jpeg");
     background-size: cover;
     background-position: center;
     color: rgb(255, 255, 255); 
