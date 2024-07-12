@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+.t-section {
+    display: block;
+}
+
+.t-section h4 {
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+    background-color: #e44a4a;
+    color: #fff;
+}
+
+.testimonies {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    background-color: #e44a4a;
+    color: #333;
+}
+
+
+
+.testimonies > div {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    max-width: 90%;
+    border-radius: 10px;
+    width: 300px;
+    height: 220px;
+    margin-right: 4%;
+    box-shadow: #e2dcdc 0px 5px 10px;
+}
+
+.testimonies img {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 10px;
+}
+.testimonies p:first-child {
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-style: italic;
+
+}
+
+.testimonies p:last-child {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555;
+    font-style: italic;
+
+}
+
+/* Responsive styles */
+@media (max-width: 767px) {
+    .testimonies {
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        background-color: #e44a4a;
+    }
+
+    .testimonies h4 {
+        font-size: 28px;
+    }
+
+    .testimonies > div {
+        padding: 30px;
+        margin-bottom: 30px;
+        max-width: 70%;
+    }
+
+
+    .testimonies p:first-child {
+        font-size: 18px;
+    }
+
+    .testimonies p:last-child {
+        font-size: 16px;
+    }
+}

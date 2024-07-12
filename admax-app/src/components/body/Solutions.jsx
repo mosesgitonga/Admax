@@ -10,6 +10,7 @@ const Solutions = () => {
                 <button>Explore Now</button>
             </div>
             <div>
+                
                 <img src="rainbowLaptop.webp" alt="rainbow like laptop" />
             </div>
             <div>
