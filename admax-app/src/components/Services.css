@@ -44,8 +44,10 @@
   
   @media (max-width: 768px){
     .service-card {
-        max-width: 100%;
+        width: 100%;
         background: none;
         color: azure;
+        margin: 0;
+        padding: 10px;
     }
   }
