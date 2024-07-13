@@ -1,0 +1,75 @@
+.contactUs {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .cover {
+    position: relative;
+    padding: 80px 20px 50px;
+    background-color: rgb(226, 43, 43);
+    margin: 0 auto;
+    color: #ffffff;
+  }
+  
+  .cover-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 1);
+    z-index: -1;
+  }
+  
+  .cover-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .columns {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .column {
+    padding-right: 20px;
+  }
+  
+  .column h2 {
+    text-align: left;
+    font-size: 60px;
+    line-height: 1.5;
+    font-weight: 400;
+  }
+  
+  .column h3 {
+    text-align: left;
+    font-size: 22px;
+    line-height: 1.5;
+    font-weight: 500;
+  }
+  
+  .column p {
+    text-align: left;
+    font-size: 18px;
+  }
+  
+  @media (min-width: 768px) {
+    .cover-content {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  
+    .columns {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  
+    .column {
+      padding-right: 0;
+      flex: 1;
+    }
+  }
+  

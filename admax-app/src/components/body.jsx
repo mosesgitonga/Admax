@@ -5,6 +5,7 @@ import Testimonies from "./body/Testimonies";
 import Header from ".";
 import "./Body.css"
 import Footer from "./footer";
+import AboutUs from "./AboutUs";
 
 const Body = () => {
     return (
@@ -12,6 +13,7 @@ const Body = () => {
         <Header className="header"/>
             <div className="body-container">
                 <Welcome />
+                <AboutUs />
                 <Solutions />
                 <Testimonies />
                 <iframe 
