@@ -30,36 +30,19 @@ const servicesData = [
   }
 ];
 
-const ServiceItem = ({ title, imgSrc, description, durationCost }) => (
-  <div className="wp-block-column">
-    <figure className="wp-block-image aligncenter size-full is-resized">
-      <img src={imgSrc} alt="" style={{ width: '80px' }} />
-    </figure>
-    <h3 className="wp-block-heading" style={{  padding: '20px 0', fontSize: '27px', fontStyle: 'normal', fontWeight: '400', lineHeight: '1.5' }}>{title}</h3>
-    <p className="wp-block-paragraph" style={{  fontSize: '18px' }}>{description}</p>
-    <p className="wp-block-paragraph" style={{  fontSize: '18px', lineHeight: '1.6' }}>{durationCost}</p>
-  </div>
-);
-
 const Services = () => {
   return (
     <div>
       <Header />
-      <div className="wp-block-cover alignfull is-light has-custom-body-text-color-color has-text-color">
-        <span aria-hidden="true" className="wp-block-cover__background has-base-background-color has-background-dim-0 has-background-dim"></span>
-        <div className="wp-block-cover__inner-container">
-          <h2 className="wp-block-heading">Our Services</h2>
-          <div className="wp-block-columns">
-            {servicesData.slice(0, 2).map((service, index) => (
-              <ServiceItem key={index} {...service} />
-            ))}
+      <div className="services-container">
+        {servicesData.map((service, index) => (
+          <div className="service-card" key={index}>
+            <img src={service.imgSrc} alt={service.title} className="service-image" />
+            <h2 className="service-title">{service.title}</h2>
+            <p className="service-description">{service.description}</p>
+            <p className="service-duration-cost">{service.durationCost}</p>
           </div>
-          <div className="wp-block-columns">
-            {servicesData.slice(2).map((service, index) => (
-              <ServiceItem key={index} {...service} />
-            ))}
-          </div>
-        </div>
+        ))}
       </div>
       <WhatsAppLink />
     </div>

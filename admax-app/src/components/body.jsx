@@ -13,7 +13,6 @@ const Body = () => {
         <Header className="header"/>
             <div className="body-container">
                 <Welcome />
-                <AboutUs />
                 <Solutions />
                 <Testimonies />
                 <iframe 

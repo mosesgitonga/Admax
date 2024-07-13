@@ -1,73 +1,114 @@
-.contactUs {
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .cover {
-    position: relative;
+/* General section styles */
+* {
+    margin: 0;
+    padding: 0;
+}
+.section {
     padding: 80px 20px 50px;
-    background-color: rgb(226, 43, 43);
-    margin: 0 auto;
-    color: #ffffff;
+    background-color: rgb(236, 236, 236);
+    margin: 60px auto;
+    color: #000000;
+    width: 100%;
+    overflow: hidden; /* Prevent horizontal overflow */
   }
   
-  .cover-background {
+  /* Background overlay for section */
+  .section-overlay {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(255, 255, 255, 1);
+    background-color: rgba(255, 255, 255, 0.1);
     z-index: -1;
+    overflow: hidden; /* Prevent horizontal overflow */
+
   }
   
-  .cover-content {
+  /* Container for content within section */
+  .section-content {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    width: 100%; /* Limit maximum width to prevent excessive stretching */
+    margin: 0 auto; /* Center align content */
+    padding: 0 20px; /* Add padding to center content */
   }
   
-  .columns {
+  /* Flex container for columns */
+  .section-columns {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 5rem;
+    width: 100%;;
   }
   
-  .column {
+  /* Individual column within flex container */
+  .section-column {
     padding-right: 20px;
+    margin: 40px 0; /* Adjust margin for better spacing */
+    flex: 1;
+
   }
   
-  .column h2 {
+  /* Heading styles */
+  .section-heading {
     text-align: left;
-    font-size: 60px;
+    font-size: 3.75rem; /* 60px */
     line-height: 1.5;
     font-weight: 400;
   }
   
-  .column h3 {
+  /* Subheading styles */
+  .section-subheading {
     text-align: left;
-    font-size: 22px;
+    font-size: 22px; /* 22px */
     line-height: 1.5;
     font-weight: 500;
   }
   
-  .column p {
+  /* Paragraph styles */
+  .section-paragraph {
     text-align: left;
-    font-size: 18px;
+    font-size: 18px; /* 18px */
   }
   
+  /* Cover image styles */
+  .section-image {
+    width: 100%;
+    height: auto;
+    display: block; /* Ensure images behave correctly */
+  }
+  
+  /* Button styles */
+  .section-button {
+    font-size: 0.9375rem; /* 15px */
+    font-style: normal;
+    font-weight: 500;
+    color: #ffffff;
+    background-color: #0e3dc0;
+    padding: 20px 40px;
+    border: none;
+    border-radius: 0;
+    text-decoration: none;
+    display: inline-block; /* Ensure button behaves correctly */
+  }
+  
+
   @media (min-width: 768px) {
-    .cover-content {
+    /* Adjust layout for larger screens */
+    .section-content {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center; /* Center align items */
+    }
+  
+    .section-columns {
       flex-direction: row;
       justify-content: space-between;
     }
   
-    .columns {
-      flex-direction: row;
-      justify-content: space-between;
-    }
-  
-    .column {
+    .section-column {
       padding-right: 0;
       flex: 1;
     }

@@ -18,9 +18,7 @@
 
 /* Responsive styles */
 @media (max-width: 768px) {
-    .body-container {
-        
-    }
+ 
 
     .body-container iframe {
         height: 300px;
