@@ -42,3 +42,10 @@
     margin: 10px 0;
   }
   
+  @media (max-width: 768px){
+    .service-card {
+        max-width: 100%;
+        background: none;
+        color: azure;
+    }
+  }
