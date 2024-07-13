@@ -1,6 +1,7 @@
 import React from 'react';
 import "./AboutUs.css";
 import Header from '.';
+import WhatsAppLink from './WhatsAppLink';
 
 const AboutUs = () => {
   return (
@@ -65,6 +66,7 @@ const AboutUs = () => {
             </div>
           </div>
         </div>
+        <WhatsAppLink />
       </section>
     </>
   )

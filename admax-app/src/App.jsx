@@ -5,7 +5,8 @@ import Body from './components/body';
 import Services from './components/Services';
 import Gallery from './components/Gallery';
 import AboutUs from './components/AboutUs';
-import ContactUs from './components/contactUs';
+import WhatsAppLink from './components/WhatsAppLink';
+
 
 const App = () => {
   return (
@@ -15,7 +16,6 @@ const App = () => {
         <Route path="/services" element={<Services />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/about-us" element={<AboutUs />} />
-        <Route path="/contact-us" element={<ContactUs />} />
       </Routes>
     
     </Router>
