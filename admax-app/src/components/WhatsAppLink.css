@@ -1,4 +1,19 @@
+/* WhatsAppLink.css */
 .whatsappLink {
-    margin-left: auto;
-  }
-  
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border-radius: 50%;
+  padding: 20px;
+  transition: transform 0.3s;
+  z-index: 1000;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+
+}
+
+
+.whatsappLink:hover {
+  transform: scale(1.2);
+}

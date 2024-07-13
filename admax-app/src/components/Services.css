@@ -1,0 +1,87 @@
+/* Services.css */
+.wp-block-cover {
+  padding-top: 96px;
+  padding-bottom: 96px;
+  background-color: #e43838; /* Light background for contrast */
+}
+
+.wp-block-cover__inner-container {
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.wp-block-heading {
+  color: #000000;
+  font-size: 70px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.2;
+  padding-bottom: 160px;
+}
+
+.wp-block-columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4vw;
+  margin-top: 0px;
+  margin-bottom: 70px;
+}
+
+.wp-block-column {
+  flex: 1 1 300px;
+  max-width: 550px;
+  text-align: center;
+  background-color: rgb(255, 255, 255);
+  padding: 20px;
+  border-radius: 40px;
+  box-shadow: rgb(3, 81, 248) 0px 10px 10px;
+}
+
+.wp-block-image {
+  margin: 0 auto 20px;
+  color: #fff;
+  background-color: #ffffff;
+  border-radius: 80px;
+}
+
+.wp-block-heading h3 {
+  color: #352d2d;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 27px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.wp-block-paragraph {
+  color: #3d3737;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .wp-block-heading {
+    font-size: 36px;
+    padding-bottom: 80px;
+  }
+
+  .wp-block-heading h3 {
+    font-size: 24px;
+  }
+
+  .wp-block-paragraph {
+    font-size: 16px;
+  }
+
+  .wp-block-columns {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .wp-block-column {
+    max-width: 100%;
+  }
+}

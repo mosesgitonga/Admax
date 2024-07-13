@@ -19,7 +19,8 @@ const WhatsAppLink = () => {
       className="whatsappLink"
       aria-label="Open WhatsApp"
     >
-      <FontAwesomeIcon icon={faWhatsapp} size="2x" style={{ color: '#25D366' }} />
+      Contact us:
+      <FontAwesomeIcon icon={faWhatsapp} size="5x" style={{ color: '#25D366', boxShadow: 'blue 0px 5px 10px', borderRadius: '50%' }} />
     </a>
   );
 };
