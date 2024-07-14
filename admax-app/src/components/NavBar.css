@@ -26,13 +26,13 @@
 .top-nav #link {
   text-decoration: none;
   color: rgb(255, 255, 255);
-  box-shadow: #1b53cc 0px 5px 10px;
+  box-shadow: dodgerblue 0px 5px 10px;
   padding: 15px;
   border-radius: 15px;
 }
 
 #link:hover {
-  background-color: #1b53cc;
+  background-color: dodgerblue;
   box-shadow: #f30000 0px 5px 10px;
 }
 .menu-toggle {
