@@ -59,7 +59,7 @@ const Body = () => {
                     height="450"
                     style={{
                         border: "0",
-                        maxWidth: "100%",
+                        width: "100%",
                         height: "400px",
                         display: mapLoaded ? "block" : "none",
                     }}
