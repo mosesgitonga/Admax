@@ -4,12 +4,16 @@ import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import './Header.css';
 import NavBar from './NavBar';
 import WhatsAppLink from "./WhatsAppLink";
+import { Helmet } from 'react-helmet';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <div>
+      <Helmet>
+        <title>Admax Tech Solutions</title>
+      </Helmet>
     <header className="header">
       <div className="bar">
         <h1>Admax Tech Solutions</h1>
