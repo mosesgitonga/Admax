@@ -16,7 +16,7 @@ const Footer = () => {
         <div className="footer-section">
           <h6>Contact</h6>
           <ul>
-            <li>Kimathi Way - Batian House, Nyeri</li>
+            <li>Gakere road - Batian House, Nyeri</li>
             <li>0711 279 189</li>
             <li>
               WhatsApp: <WhatsAppLink />
