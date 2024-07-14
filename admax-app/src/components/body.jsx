@@ -54,7 +54,7 @@ const Body = () => {
                 <h3>Visit Us Today</h3>
                 <iframe
                     id="google-map-iframe"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127670.70077372756!2d36.87111892489156!3d-0.4233681621727913!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18285fc007eb1d33%3A0x91bd8681b919f716!2sAdmax%20Tech%20Solutions!5e0!3m2!1sen!2ske!4v1720785962891!5m2!1sen!2ske&z=16"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2137.453502185898!2d36.952653042722865!3d-0.42340393086119005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18285fc007eb1d33%3A0x91bd8681b919f716!2sAdmax%20Tech%20Solutions!5e0!3m2!1sen!2ske!4v1720975709319!5m2!1sen!2ske" 
                     width="100%"
                     height="450"
                     style={{
