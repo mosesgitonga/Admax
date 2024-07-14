@@ -51,22 +51,37 @@ const AboutUs = () => {
 
             <div className="section-columns">
               <div className="section-column is-vertically-aligned-center">
-                  <h2 className="section-heading">Our Missions: Elevating Expectations</h2>
-                  <p className="section-paragraph">Our mission at AdMax Tech Solutions is to elevate expectations in the tech industry by providing exceptional repair services and innovative solutions.</p>
-                  <div className="section-buttons">
-                    <a className="section-button" href="#">Elevate Now!</a>
-                  </div>
+                <h2 className="section-heading">Our Mission: Elevating Expectations</h2>
+                <p className="section-paragraph">Our mission at AdMax Tech Solutions is to elevate expectations in the tech industry by providing exceptional repair services and innovative solutions.</p>
+                <div className="section-buttons">
+                  <a className="section-button" href="#">Elevate Now!</a>
                 </div>
-                <div className="section-column">
-                  <figure className="section-image">
-                    <img src="https://images.unsplash.com/photo-1563770660941-20978e870e26?ixid=M3w1NjExMzd8MHwxfHNlYXJjaHwyMHx8cGhvbmUlMjByZXBhaXJ8ZW58MHx8fHwxNzIwODY3NzM1fDA&ixlib=rb-4.0.3&fm=webp&w=1024&h=682&fit=crop" alt="Mission Image" className="section-image" />
-                  </figure>
-                </div>
+              </div>
+              <div className="section-column">
+                <figure className="section-image">
+                  <img src="https://images.unsplash.com/photo-1563770660941-20978e870e26?ixid=M3w1NjExMzd8MHwxfHNlYXJjaHwyMHx8cGhvbmUlMjByZXBhaXJ8ZW58MHx8fHwxNzIwODY3NzM1fDA&ixlib=rb-4.0.3&fm=webp&w=1024&h=682&fit=crop" alt="Mission Image" className="section-image" />
+                </figure>
+              </div>
+            </div>
 
+            <div className="section-columns">
+              <div className="section-column">
+                <h2 className="section-heading">Why Choose Us?</h2>
+                <ul className="section-list">
+                  <li>Experienced and certified technicians</li>
+                  <li>Fast and reliable service</li>
+                  <li>Wide range of repair services</li>
+                  <li>Excellent customer support</li>
+                </ul>
+              </div>
+              <div className="section-column">
+                <h2 className="section-heading">Get in Touch</h2>
+                <p className="section-paragraph">Have questions? Need assistance? Contact us today!</p>
+                <WhatsAppLink />
+              </div>
             </div>
           </div>
         </div>
-        <WhatsAppLink />
       </section>
     </>
   )

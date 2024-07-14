@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Services.css';
 import Header from '.';
 import WhatsAppLink from './WhatsAppLink';
@@ -30,23 +31,35 @@ const servicesData = [
   }
 ];
 
-const Services = () => {
-  return (
-    <div>
-      <Header />
-      <div className="services-container">
-        {servicesData.map((service, index) => (
-          <div className="service-card" key={index}>
-            <img src={service.imgSrc} alt={service.title} className="service-image" />
-            <h2 className="service-title">{service.title}</h2>
-            <p className="service-description">{service.description}</p>
-            <p className="service-duration-cost">{service.durationCost}</p>
-          </div>
-        ))}
-      </div>
-      <WhatsAppLink />
-    </div>
-  );
+const ServiceCard = ({ title, imgSrc, description }) => (
+  <div className="service-card">
+    <h3>{title}</h3>
+    <img src={imgSrc} alt={title} className="service-image" />
+    <p>{description}</p>
+  </div>
+);
+
+ServiceCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  imgSrc: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
 };
+
+const Services = () => (
+  <div>
+    <Header />
+    <div className="services-container">
+      {servicesData.map((service, index) => (
+        <ServiceCard
+          key={index}
+          title={service.title}
+          imgSrc={service.imgSrc}
+          description={service.description}
+        />
+      ))}
+    </div>
+    <WhatsAppLink />
+  </div>
+);
 
 export default Services;
