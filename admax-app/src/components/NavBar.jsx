@@ -17,7 +17,7 @@ const NavBar = ({ menuOpen }) => {
   return (
     <nav className={`top-nav ${menuOpen ? 'open' : ''}`}>
       <Link id="link" to="/">Home</Link>
-      <Link id="link" to="/services">Services</Link>
+      <a id="link" href="#services">Services</a>
       <Link id="link" to="/gallery">Gallery</Link>
       <Link id="link" to="/about-us">About Us</Link>
       <a

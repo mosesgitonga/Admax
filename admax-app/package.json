@@ -15,11 +15,13 @@
     "@fortawesome/free-brands-svg-icons": "^6.5.2",
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
+    "framer-motion": "^11.3.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-helmet": "^6.1.0",
     "react-router-dom": "^6.24.1",
-    "sitemap-generator": "^7.5.2"
+    "sitemap-generator": "^7.5.2",
+    "styled-components": "^6.1.11"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",

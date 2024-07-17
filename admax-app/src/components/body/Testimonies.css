@@ -11,10 +11,11 @@
 }
 
 .t-section h4 {
+    margin-top: 80px;
     padding: 20px;
     text-align: center;
     font-size: 24px;
-    background-color: #e44a4a;
+    background-color: #e71414;
     color: #fff;
 }
 
@@ -25,8 +26,9 @@
     justify-content: center;
     text-align: center;
     padding: 20px;
-    background-color: #e44a4a;
+    background-color: #e71414;
     color: #333;
+    margin-bottom: 50px;
 }
 
 

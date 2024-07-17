@@ -6,6 +6,7 @@ import Header from ".";
 import "./Body.css";
 import Footer from "./footer";
 import AboutUs from "./AboutUs";
+import Services from "./Services";
 
 const Body = () => {
     const [mapLoaded, setMapLoaded] = useState(false);
@@ -33,6 +34,10 @@ const Body = () => {
             <div className="body-container">
                 <Welcome />
                 <Solutions />
+                <h2 className="services-head">Services</h2>
+                <div id="services-section"> {/* Add ID here */}
+                    <Services />
+                </div>
                 <Testimonies />
                 {!mapLoaded && (
                     <div

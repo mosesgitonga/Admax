@@ -1,65 +1,139 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import './Services.css';
-import Header from '.';
-import WhatsAppLink from './WhatsAppLink';
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
-const servicesData = [
-  {
-    title: "Computer Repairs",
-    imgSrc: "data:image/jpeg;base64,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",
-    description: "Our computer repair services cover a wide range of issues including SSD and HDD repairs, laptop screen and battery replacements, keyboard and charging port fixes, BIOS error troubleshooting, and repairs for broken casings and hinges. We offer efficient and cost-effective solutions for all your computer problems.",
-    durationCost: "1 - 2 days | 500- 7000"
-  },
-  {
-    title: "Refurbished Sales",
-    imgSrc: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtP4bP54WIZLkoLqoV4OjHPeUnPCHzSwl4wg&s",
-    description: "We offer a selection of high-quality refurbished computers, laptops, and other tech devices at competitive prices. Each refurbished item is carefully inspected and restored to ensure optimal performance, providing you with reliable and affordable tech solutions.",
-    durationCost: "0 - 1 days | ksh 200 - 80000"
-  },
-  {
-    title: "CCTV Installations",
-    imgSrc: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxISEhUTEhIWFRUWFRgYGRcXGBUWFhcXFxcYFxgWFxcYHSggGBolHRcXITEhJSkrLi4uFx8zODMtNygtLisBCgoKDQ0NDg0PDjcZFRkrKy0rKystKy03LSstKysrKystLS0tKy0rKysrKysrLSstNysrKysrKysrKysrKysrLf/AABEIAM8A8wMBIgACEQEDEQH/xAAcAAABBQEBAQAAAAAAAAAAAAADAQIEBQYABwj/xABBEAABAgQDBQUFBgQFBQEAAAABAAIDBBEhEjFRBRNBYXEGIjKBkRShscHwB0JScoLRYpLh8SMkM7LCFRZDU9KT/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwD3FRJjxLt+5EYwOFTmgZLZ+SkuyKDEbhuOiYIxQCUuB4Qk3DUN8QtNBkEDprggw8x1RYZxZ8E50IAVHBAZQouZ6p2/cithAip4oEleKJG8JQondy4pGxC40ORQBU1mQ6Jm4ahGMRZAs1n5Jsv4kSGMVyuewNFRmgOoCJv3I24CDpbJJM5eaY9xaaBdDdisUAQp6EYAQd+5B0fxH64J0rmU9kMOFTmkiDDkgLEyPQqEiiKTY8bIu4agdB8IQprh5/JNdEINBkE6H38+CAcHxBTEF0MAVGYQt+5Ax+Z6lKjiCDfVKgF7OeSe1+Gx9yNiGqjRxdA9zsdh1um7gi9l0vY30R3EUQD9oGhTHQy644oWE6KVBNggG0YM+OicYwNr3skmb0ohQxcdUDvZzyTxFAsa2RsQ1USILlAR/fy4apBCLbngnS1q1T4xsUDfaBoUwwCb2uhYTopjDYdEAmuwWPuXOfisPemzFzbRCEVrO88ho1NkBPZzyRPaBoVUTfaRgtDaXnU91v7n0VLGnI0XN1Bo2w/coNFP7ShMN3iv4Rd3oMvNU8Xb0Qn/AAmhvM94/sPeoLJYDNPdEAyUUZ05Hd4orvKjf9oCbCnnQ/C4nqSQfVRHxCUyiDZbN2i2IwEVrxFrFSHHHYcNVkNmTO7eDwNndNfJa6W4qo4QSL2tdP8AaBoU+IbHoomE6ICmEXXHFKzuZ8dOSJCNghzN6U5oFdFDrDimeznkmwhcKXiGqAQjAWvay5AeLnquQNUqW8KXct0+KFEcWmgsED5rLzUduYRYRxGhuimENEBFDj+I/XBdvna/BGhsBFTmgbK8UaLkeiFFGHw2TGxCTQmxQCUyFkOiTct0+KC6IQaA2CBu0o7IbS97gxjQS5ziA0DUkrIDtmYzyyRg7zD4osU7uE22Yb43nlZaHbkzBECJ7REDAW0BJoanKgFzei8Y7Kznss3EhAEnGScRwDq4xKBts7oPUeyPah8ePEl49MYGJpAwg08QAqbDma5q3nNpQmE1dU1ybc/sPVeVbXkI0zMB8vEDBW72VIpxAfbH+m3MraSOznBoB0zUVOjbdiEUhgMFc83fsFAcx7zV5JOpJKnCXa3NBiRhwQMZAAXPigZITnkpoag57yUyiIGpwagFhShqWYishjFEeGDVxpXoMz5KsibXc60CFb/2RLD9MMXPmR0QWgZxtTU2HmStZLh25h4s6D+nuovOPYnRCHRnuiEZVs0flaLBb7s/NmKzC+7mUHUcCglw8x1CnIToQAqBkgb52vwVQkXMosrx8k9kMEVIuUyL3aYbVQFjeEqGisiEmhNijblunxQOh5DouUZ0Ug0ByXICe0jRIWYr5IWA6H0R4JoL26oGhuC+fBLv62oljmote/BAaw6FAT2Y6pwiYbaIu8Go9VBnZhjSS5wHz6aoJBOPlRduaXrldUkTbtK7ttebsvRV0xNRYvjcSNMh6BBoZnbkJn8R0bf35KlmtsxHk4RhHK59UCDIk8FPg7PDc1FZ6f2K2a/1Q53ma9a6qRJ9j5drt4YYc85vfWJEP631d71fujMbkocadJyQFbAhw8gEGNOaKM9xKQNQNe8lJhRA1LhQDDUoan0TsKAMRwaC5xoAKk6BU8XaUaIaQmiE38bgHRDzDT3W+8qw2h3iGcBd3XgPLP0Q4cFBXQdmiuJ1Xv8AxPJc4+ZU+HAUlkFGbDQAZCVnsWJu4g0Nj8vfT1UXJN34aa6GvvQbAxq2pnb1TfZjqmNYQRbipW8Go9VUCEXDamSQ9/lT5pkRpJNAny9q1t1sg4QsN65JfaRonxXAggFRsB0PogLuK3rndciseKC4ySICKJMeJN3h1R4TQRU3QDljc9FQ7e7f7OlKiLMsxD7ravOmTASvNftj7ZxTGdIyzsDG03jm2LjxbXT9ivJjKZk3Ot6lB7ZO/bFI5NdG/RCpX9T3A+4KPLfaPs57gIj40In70SHib5uYSRw4LyGVlQ2rz93LrTPy+fJV8d5cany6IPqWRgsiMbEY9r2OFWvYQ5pHJwt5KfDgtbmvmbsj2rmtnRMcB1WE9+E6phxBzHB2jhce5e8dn+00HaELewHZU3kMkbyE45BwGbTQ0dkeoKitDEmwLBQ4syShUS4UDCuwomFcaCmV/wBx+4QMolwouFLRALCnYEVrK5XVTtTtFKy9WuiY3j/xQqRInQ0NGn8xCCywoczEwUtVx8I159B9ZrE7a7UzkSG4y4Es0CuKz4xFq3IwttoPNX/Zoh8vDiklz3tGNxJLi4Va6pPMFBOZC1uePVFaxc5wCDEmAEByUJ8ccOar488Pr6+qKumNofX9EFtGnAOPyChNm8cRjPxPa3+YgKjjz1Va9h5Z0aaa8+GEC8nhiIIYPW/6Sg9XiZHoVCT2vJIFeKk7oaKo6D4QhTXDz+SY95BIBT4HerW6AcHxBTEKIwAEgXUfeHVAj8z1KVSWwwQLLkA/ZufuXY8Fs0Xet1QIrSTUXCD5w7YyZG0JrHc75x8iaj3EKqjS1l6d9quwSyOyaDe7FAY+nCI0WJ6tHq3msTEgVA80VB2hItEs1obdxF+vePyCx0TxHlbhwXom0Wd0H8IJ/lbX5LDSjatFdPiiAU+vr+6m9ndvRZKYbHgGhFnNPhiM4scND7swos3CoKjVNkpXGbg0FNczkg+k+zu2YM7AbMQPCbOabuhxABihu5jgeIIKsQ1eBdlO0rtmR8bAXwn0EWFwc0ffbXJ7eB8uK942RtGDNQmxpeIIkN3EZtP4Xtza4aFRS94uIpQAi+otW/1x6oURrS69X5gDreleN69E7ac5Lwqb+K1hIJDCe+4aiGO8eoCys522e5zoUrL4Cy28jgVpe7YbTl+Y9Qg10VvdxPcGNFakkADSpJpVZ+e7Yy7CRLMMw7UVZCrw77hVwv8AdFOazMxLxI7g+YiOikZBx7rfysFA3yClwpcNyCBs7PzczaLFwQz/AOOFVjaZ0c4d53mfJDlpFkMWaB5I0WKGqumJ1BNmIjcJGoI9RRS+ws/WUoT4Yrx7mO+LvesvMz1KnKiJ2KmsMpX8cV7udKNZ/wACg3MxPqtmNoc/r5KqizZPJBaC4/XqglR5w+vwUQxC7mpcHZ5cb8cgtRsjsi91C6kJv8Q7x/T+9EGWk9mRIrg1oJLsgM/6DmvVOzWxWS8EQx4j3nu/E6lPQZBF2bsaHAFIYrXN5zP7DkFYwRhzsqjtxS9cr+i72nl70R7wQRXgo+6dogJucV65rvBzr5ZJ7HgAAm6ZG71KXog7e4rUpVd7Nz9yYxhBqRZSN63VALf0tTKy5MdDJJNEiBilS/hT8A0CjxjQ2t0QJtWVZFhmHEaHsdYtORHyPNYyW+zqUD6ufGeytoZcGtA0JYA53qtrANTe9uKM5gpkEHhW1tngRI8ECgbEewDRpL2tF+VF5dJeGh+qWXuXa+W3c/XhHaHD89gfewfzheP7dktxNxodKNLsbebX94e8keSCtn293oR+37Ky2NOMh0LyA0lrjXTI/P0URzQQQeKiy5F4b7aHh0r7wguO1EuGRahtQ4VBGVDcHLvDlxVPs/aExLOxQY0SC5wFSxxbUcK0zz96lCJHaAyoc0CjcVThGmeXqoEyaupWprc8yeHSw8kFz2ejRGzsKK9znudEDXOc4uc7GMNybm5C9LjwQJprv/Yyh6j+jAvLpd1HsOj2H0cF6f2imN26E4Z1f/x/dRU+IWszVXN7TAyVJN7TJzKq4899cUFtMz/OirY88quNN1yQmQ3vKoNOTZIIFybDz09Vr9lyTmQmQwPC0A9cz7yVWdlNg4n71/ghmxNsTv2HxpzXqWxOzm9aIhcGwzkW95xpbo3jr0UGVl9nGorUk5AZk6AcVrNjdkIj6Y6QxnlV3QDh1PothsnZUGCKsYK5Fxu4jmT8FMjigta/BBE2dsaDAHcZ3qeI3d68PJOTg86n1VXtSdxnCyzRx/F/RVEmLtcNGFgxHXIf1UGLORH5u8hb4XQWMRWMUUzd14u6hzwfinEx23hxif4YlCD0dmPNGa1FaxBAl+0PfLI7cDuP181o5JwIJBqLfNUe1dktmGYTZ48L9DodW5VCodi7YiS0QwY1QAaHVp4X4jL1QegRvCVDT4L6kXqCpWAaBVHQ8h0XKK9xqbnNIgJ7QdE4MxXKHuXafBFhuDRQ5oGubguL8Em/JtROiuxCguhiEdEGZ+0fYpiyu9h13kA7wa4fvAdKB36V5L22kfapWHPQhV0IERAPwE97+R1T+V6+hjGaf7LyLbUl/wBKmzasjMnu2q2G6l2kaCpFOLfyoPHmOqE2Ygh4vYjI/I8loO2HZsyjzFgjFLPuKX3RdfCf4MqO8lRNdVBAdDiNGGppyNR6BElZYg1NtApi5BL2PL7yYgs1iN9AcR9wK13bycpEgt/ge4+ZoP8AaVB7A7OLnmORYAtZzLrF3TTzUXboM1NRHjwAiG3mG2Pq4uPmoqoiTRNglhSj35/X7LRbK7POe4NYwvd+FoqfMcBzOi1m0uxMeVlTHcGVaRVlQcDKHvOdYWNBQa5qjCy+yA0YnkADMk0HqVJhlpcGQ2l9Twrfla9PqqpJydZFeMccYa5jE4N6NaDTJb7s3tuThQ2Ml2YomTojmkWtQ969b5ckBYOz3tYHTGIADuwWAYqDQWDB/E71qrDsLth/traMpDjN3TobKuDMOJ7IhJzIJcC6gs8WsrBu3ZUuZLPiARI7wzujFhccjEI8PAXPELXbI2ZI7OaTjYxz84kVzQ93IE0o3kFBdl+GwXB2OxtxVVMdoJStRMQz0OL/AG1QofaWXBsXu6Md8XUVRM2u4MbQG59zRmVk/wDrsJjGRIhwtiOIaKCgaCBie7POmWqsZ3bO8cSITqUoA4gWpxpWn9VnYWFzd0YLTunFzWvuWYri2TxaoOVtQorXsC4RWVoXCulQqCPOxnNw2aKU7ufqSoXszuaDbNb9fX1dFaxZbZc++C4Nfdht0WubqOqBA1UHa3Zge0RgO82zubTkfI28+StZnaLGRN3QufhxECgDW6uPpbmpLCyKwgXa4EHz/uCqin7JTndMNxu0Vb008lofaDosgxhgvDxm11D+UnCf38lrBBOnwQFEAG9c7rk5sUAUJyXICqJMeJDqpUvkgFK5+SkuyKFM5eajtN0CLp/ZsKZgOgxm4obxQjLjUEEXBBuCNFOoosY94/XBB5DtnYczs2rHgx5Q1wxAKmGD92IMh5908KZLGbQ7MQ39+WcGVuWirmV/L4mfDRfSUBodUEVBFwbgrM7X+zyTiEvh4oDs/wDDpg/kNgOTaIPn47BmAaf4Z/UfhSqstm9lnEjemvIVDfM5noAOq9W/7AiDKbqP4mOr/vVps/7P4YoYsd7x+FgEMHqal3oQgwAY8/5aVY58UihLBXdtNqupZptQaLVbA+zfA0OmHYQB/psz6Ofw/T6rcS2zYMuwQ4ENsNtzRopU6uObjzN0aCbhBEkZKHBbghMaxug49TmT1U2ekmR4L4MVuJkRhY4Hi1woVJoobzc9UHkm1fstmY4YwvhQt3Vheb4mNNGvDGAXIAsaKVtL7LIECRi7mLEMcMLt652EUAJLQ0GjQdTU2AqvWJbLzWU+1OK5skA22OMxrunecPVzWjzQeI/Zy9jYkWXiNo5wLcWRabmo0uKqt2vt6K6YeYsRxIdRz8OJ8SnGrx3WnQCyN2d2eZqK97pkQaNBdEAAe7ugCh1OopxK2XZ9+z93/nGl0S1HDDdlMIJrx7vvRU77LdowZpj4QbSLDNTUXc1xNHjkKYSOmq9BGyfr6KxOzprZ8OYgmTaWvJe1+X+mYTnHL+NsNbB+1j71AcbNoqzbkqIW7j/giNY/nCiuEN1eTXFr/wBJUlu0STRVfayarJTA1gvp1pb30QXjpIBM9naocbaHeN+J11QjPhBNm5VrmOAzoadRl71Zdm5neQG1zFv2WfG0OatOxp/wjTI0I80FbtmQcI8ziOFsxDaGvOQLQAWk+WXRWvY/Z7peXDHOLrkg6gku7tfu96g5NBV2SmOcqiu2nADhEGrXepbX4q42XGxwYbtWj4KonJgBx6fJJ2ZcfZYVT9wfBRVpEzPUpVLYLDokVQz2cc0xz8Ngib8Ib2FxqECsdjsetk4wAL3TWNw3PROMYFAP2g8k9sMOueKZ7OeSI2IGihzCBrxgy46pBGJta6c848uCYIRFzwQE9nHNMMUiw4Im/CG6ETccUCs7+fDRK6GG3HBIzuZ8U50QOFBmUA/aDyRBBBve6H7OeSIIwFtEDXuwWHvUDbOz2zkF8CJYPFnDNrgcTXCvEEA+SnvGK4SMYW3KDw/a32bzTHOcZXHhq4vhPGB4ubMJDqnPDqbVWD2nBhOfifGc0kAABr8IAyAIF+K+sPaAsrtf7PZKYeYjoZY9xq4w3FmI6ltCK86IPG/s72aGxIswC4saAxpdYknvOoPJo9VtzNFa2V7DysFghsMRrQSaYg65zJJGad/2fDPhiu82tPwoorLysY5oG1Y2INh54nAn8jCHO9SA39S1Z7KEW3o/kP8A9KFN9mnQmuiF7XZVNDWlbAcABpzQZ8x3JN65FjR2Mzr5CqjHbMuM3O//ADf8mke9Ak1MljHOPAW5k2A8yQFv+zUtu4DQdB7gAvMGTDpuZgw2tLYYitNDm6hridS2VaD6HrtQBQZD4BA970J70x71EnpwQob4h+4K9Tk0eZoEFBt3aV4xByxAdaYR71sdhSYbAhtvZo+C8mhxTFiwodbueC78rSHE+bqehXscpFaGgckDjGIta1lyQwSb63XKoEpUvkiqJMeJAWZy81HbmESVz8lJdkUCqHH8R+uCYpcDwhAOV4o0TI9EKa4IMPMdUDVMhZDonqFFzPVAWa4IcHxBFleKJG8JQPUF+Z6pFNZkOiActkeqWY8KHNZ+SbL+JANTkqgICzGfkuls/JFlsvNJM5eaAE4/CQ45cemvkoe1xWE4dPiESZh4gql87u6wotm/ddpyPLmgyW1IQaC51gBmqF8JrsgRxoaV9AbLX9ptmOiQnBlzUOA/FQ1osyzYxMwYwJoRdtCKWFjXOlLDmVFWPYuR/wAxipZjSfPh81vXPVH2clQxjnfiPuCs3xED3vWS7Y7SH+liAa3vRCcgQLAnkKnrRWe2NrthNdQgOAuSQGwxqTlXkvMJyYdOxBDYCINalxzimtakG4bX1zQav7PpUxYj5hwoCMLAcwwXHmbnzXqTBQLOdi9miG1tltFUNh5DouUOJmepSoHb9yJDYHCpzTfZzqE5r8Nig6I3DcJgjFPc7HYdbpu4IvZATcNQ3vLTQZJ/tA0KYYZdccUCwziz4JzoQAqOCa0YM+OiUxgba2QD37kVsIEVPFM9nOoThGAtogSJ3cuKayISaHIpzu/lw1SCEW3PBATcNQjFIsie0DQphgE3tdA6GMVylewNFRmka7BY+5c5+KwQD37kbcNQ/ZzqE/2gaFAyI4tNBkuhuxGhSuZiuFzW4LnpZA8wGrPbalS8FaDfjQoT5QkcEHn7HRoWRq38Lqlo6cW+SZG2sB44T/0lrh6Eha2e2eMqXCo5nZhOQUVBidrIDAAGRemAqn2h2uiuqIMB3Vxwj3VPpRW0XZRF6ZfJRjIE8CgxU1Lx5hw376gXDGijAdcN6nmSVs+yPZ8E1Lcv6qx2Z2bLjWgotls6REEddOX90EiWlBDbYXCdv3Ihih1hxTfZzqFUEbCBvquTRGAte1kqAuIahRo4qbISlS/hQDl7G9rI7nCmaHNZeajtzCDsJ0KlQTQBEUOP4j9cEBZi9KXQobTUW4okrxRouR6IFxDUKJEBqbJimQsh0QDl7VrZPimxQ5rghwfEEDcJ0KltcKC6eoL8z1QFmLm17JIAobokrkeqWY8KAmIahQsJ0KRT0AYBoL2XTBqLXuhzOfkuls/JAwNOhUzENQucoKAkdtSeKZDlxeopX64qVA8I+uKZNZBBFiyLSDlkVFZswDh7lOh5jqFNQR5eE1oGS6YvSl+iFFzKLK8fJAOELhS8Q1CbG8JUNA57TU24rlLh5DouQf/Z",
-    description: "Our professional CCTV installation services offer top-notch security solutions for your home or business. We provide expert installation of high-quality surveillance cameras, ensuring comprehensive coverage and peace of mind. Protect your property with our reliable CCTV installations.",
-    durationCost: "1-2 days | ksh 1000 -1500"
-  },
-  {
-    title: "Smartphone Repairs",
-    imgSrc: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2d_lqiIpjYLPGdZOfuegAA7hJnJxyHU8Vxg&s",
-    description: "Our smartphone repair services encompass a wide range of issues, including screen replacements, battery and charging port repairs, software troubleshooting, and more. Trust our skilled technicians to provide efficient and reliable solutions to restore your device to optimal performance.",
-    durationCost: "1 hour -2 days | ksh 300 - 2000"
+const Container = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  background-color: dodgerblue;
+`;
+
+const ServiceItem = styled(motion.div)`
+  background: #e01515;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
   }
-];
 
-const ServiceCard = ({ title, imgSrc, description }) => (
-  <div className="service-card">
-    <h3>{title}</h3>
-    <img src={imgSrc} alt={title} className="service-image" />
-    <p>{description}</p>
-  </div>
-);
 
-ServiceCard.propTypes = {
-  title: PropTypes.string.isRequired,
-  imgSrc: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
+`;
+
+const ServiceImage = styled.img`
+  width: 100%;
+  height: 200px;
+  border-radius: 10px 10px 0 0;
+  object-fit: cover;
+`;
+
+const ServiceTitle = styled.h2`
+  margin-top: 10px;
+  color: white;
+  text-align: center;
+`;
+
+const ServiceDescription = styled.p`
+  color: white;
+  text-align: center;
+  padding: 0 10px;
+`;
+
+const ServiceButton = styled(motion.button)`
+  margin-top: 10px;
+  padding: 10px 20px;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+  }
+`;
+
+const Services = () => {
+  return (
+    <Container>
+      <ServiceItem
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
+        id='services'
+      >
+        <ServiceImage src="compRepair.jpeg" alt="Computer Repairs" />
+        <ServiceTitle>Computer Repairs</ServiceTitle>
+        <ServiceDescription>
+          Our computer repair services cover a wide range of issues including SSD and HDD repairs, laptop screen and battery replacements, keyboard and charging port fixes, BIOS error troubleshooting, and repairs for broken casings and hinges.
+        </ServiceDescription>
+      </ServiceItem>
+      <ServiceItem
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        <ServiceImage src="refurbished.jpeg" alt="Refurbished Sales" />
+        <ServiceTitle>Refurbished Sales</ServiceTitle>
+        <ServiceDescription>
+          We offer a selection of high-quality refurbished computers, laptops, and other tech devices at competitive prices. Each refurbished item is carefully inspected and restored to ensure optimal performance, providing you with reliable and affordable tech solutions.
+        </ServiceDescription>
+        <ServiceButton whileHover={{ scale: 1.1 }}>See Products</ServiceButton>
+      </ServiceItem>
+      <ServiceItem
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        <ServiceImage src="cctv.jpeg" alt="CCTV installation" />
+        <ServiceTitle>CCTV installation</ServiceTitle>
+        <ServiceDescription>
+          Our professional CCTV installation services offer top-notch security solutions for your home or business. We provide expert installation of high-quality surveillance cameras, ensuring comprehensive coverage and peace of mind.
+        </ServiceDescription>
+      </ServiceItem>
+      <ServiceItem
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        <ServiceImage src="phoneRepair.jpeg" alt="Smartphone Repairs" />
+        <ServiceTitle>Smartphone Repairs</ServiceTitle>
+        <ServiceDescription>
+          Our smartphone repair services encompass a wide range of issues, including screen replacements, battery and charging port repairs, software troubleshooting, and more. Trust our skilled technicians to provide efficient and reliable solutions to restore your device to optimal performance.
+        </ServiceDescription>
+      </ServiceItem>
+      <ServiceItem
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        <ServiceImage src="windows.jpeg" alt="Software Installation" />
+        <ServiceTitle>Software Installation</ServiceTitle>
+        <ServiceDescription>
+          Our comprehensive software installation services cover everything from operating systems like Windows and Linux to essential applications such as Microsoft Office, AutoCAD, and more. We ensure smooth installation and configuration, allowing you to focus on your work without technical hassles.
+        </ServiceDescription>
+      </ServiceItem>
+      <ServiceItem
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        <ServiceImage src="bios.jpeg" alt="BIOS Errors Fixing" />
+        <ServiceTitle>BIOS Errors Fixing</ServiceTitle>
+        <ServiceDescription>
+          We specialize in diagnosing and fixing BIOS errors, ensuring your computer starts up correctly and operates smoothly. Our expert technicians can resolve a wide range of BIOS-related issues, including error messages, boot failures, and configuration problems.
+        </ServiceDescription>
+      </ServiceItem>
+    </Container>
+  );
 };
-
-const Services = () => (
-  <div>
-    <Header />
-    <div className="services-container">
-      {servicesData.map((service, index) => (
-        <ServiceCard
-          key={index}
-          title={service.title}
-          imgSrc={service.imgSrc}
-          description={service.description}
-        />
-      ))}
-    </div>
-    <WhatsAppLink />
-  </div>
-);
 
 export default Services;
