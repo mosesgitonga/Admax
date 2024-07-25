@@ -1,0 +1,45 @@
+:root {
+  --primary-color: white;
+  --box-shadow: rgba(0, 0, 0, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Added box-sizing for consistency */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  height: 80px;
+  border-radius: 50px;
+  border: 1px solid red;
+  background-color: rgb(229, 232, 235);
+  opacity: 0.8;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  padding-top: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.bar h1 {
+  margin: 0;
+  z-index: 1000;
+  color: black
+}
+
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+}

@@ -1,24 +1,21 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import NavBar from './components/NavBar';
-import Body from './components/body';
-import Services from './components/Services';
-import Gallery from './components/Gallery';
-import AboutUs from './components/AboutUs';
-import WhatsAppLink from './components/WhatsAppLink';
-
+import React from "react";
+import Header from "./components/intro/Header";
+import Welcome from "./components/intro/Welcome";
+import "./App.css"
+import InternetTheme from "./components/internetTheme";
+import Services from "./components/content/Services";
 
 const App = () => {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Body />} />
-        <Route path="/gallery" element={<Gallery />} />
-        <Route path="/about-us" element={<AboutUs />} />
-      </Routes>
-    
-    </Router>
-  );
-};
+    return (
+        <div>
+            <div id="background-image">
+                <Header />
+                <Welcome />
+            </div>
+            <Services />
+            <InternetTheme />
+        </div>
+    )
+}
 
 export default App;

@@ -1,0 +1,57 @@
+.internet-theme {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  margin: auto;
+  padding-top: 100px;
+  border: 1px solid #000000;
+  background-color: #333;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.central-icon {
+  background-color: #e92b2b;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  margin: 30px;
+}
+
+.icon {
+  background-color: dodgerblue;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  
+  animation: orbit 7s linear infinite;
+}
+
+.email { animation-delay: -0s; }
+.shopping { animation-delay: -5s; }
+.cloud { animation-delay: -10s; }
+.thumbs-up { animation-delay: -15s; }
+.link { animation-delay: -20s; }
+.newspaper { animation-delay: -25s; }
+.server { animation-delay: -30s; }
+
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg) translateX(150px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(150px) rotate(-360deg);
+  }
+}

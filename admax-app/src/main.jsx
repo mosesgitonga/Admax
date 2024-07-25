@@ -1,9 +1,17 @@
+// index.js
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter as Router } from 'react-router-dom';
 import App from './App';
+import ErrorBoundary from './ErrorBoundary';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+const container = document.getElementById('root');
+const root = createRoot(container);
+
+root.render(
+  <Router>
+    <ErrorBoundary>
+      <App />
+    </ErrorBoundary>
+  </Router>
 );

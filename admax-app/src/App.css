@@ -1,0 +1,10 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#background-image {
+    background-image: url('../public/IMG-20240723-WA0001.jpg');
+    background-size: cover;
+    background-position: center;
+}
