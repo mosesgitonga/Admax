@@ -1,0 +1,70 @@
+/* Catalog.css */
+
+h2 {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 2em;
+    color: #d82a2a;
+  }
+  
+  .catalog {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .catalog-item {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .item-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .item-details {
+    padding: 10px;
+  }
+  
+  .item-name {
+    font-size: 1.2em;
+    margin: 10px 0;
+  }
+  
+  .item-price {
+    color: #d82a2a;
+    font-weight: bold;
+  }
+  
+  .item-description {
+    font-size: 0.9em;
+    color: #555;
+  }
+  
+  .whatsapp-button {
+    display: inline-flex;
+    align-items: center;
+    background-color: #25d366;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-top: 10px;
+  }
+  
+  .whatsapp-button:hover {
+    background-color: #1ebe54;
+  }
+  
+  .whatsapp-button svg {
+    margin-right: 5px;
+  }
+  
