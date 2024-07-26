@@ -14,7 +14,7 @@ const Catalog = () => {
     { image: "laptops/Untitled.jpeg", name: "item 7", price: "ksh 3999", description: "some short description" }
   ];
 
-  const phoneNumber = "+254757573241";
+  const phoneNumber = "+254757573249";
   const message = "Hello, I would like to know more about this product: ";
 
   const openWhatsApp = (item) => {

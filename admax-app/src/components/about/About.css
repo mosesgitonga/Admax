@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.about-us-container {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: auto;
+    background: #1e1e1e;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.about-us-header,
+.about-us-mission,
+.about-us-vision,
+.about-us-team {
+    margin-bottom: 40px;
+    padding: 20px;
+    background: linear-gradient(135deg, #ff416c, #ff4b2b);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(30px);
+    opacity: 0;
+    animation: slideIn 1s ease-in-out forwards;
+}
+
+.about-us-header {
+    text-align: center;
+}
+
+.about-us-header h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.about-us-header p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.about-us-mission h2,
+.about-us-vision h2,
+.about-us-team h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.about-us-mission p,
+.about-us-vision p,
+.about-us-team p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.about-us-mission {
+    animation-delay: 0.5s;
+}
+
+.about-us-vision {
+    animation-delay: 1s;
+}
+
+.about-us-team {
+    animation-delay: 1.5s;
+}
+
+@keyframes slideIn {
+    from { 
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

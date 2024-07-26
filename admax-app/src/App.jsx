@@ -5,16 +5,18 @@ import "./App.css"
 import InternetTheme from "./components/internetTheme";
 import Services from "./components/content/Services";
 import Catalog from "./components/catalog/Catalog";
+import AboutUs from "./components/about/About";
 
 const App = () => {
     return (
         <div>
             <div id="background-image">
-                <Header />
+                <Header className="header" />
                 <Welcome />
             </div>
             <Services />
             <Catalog />
+            <AboutUs />
             <InternetTheme />
         </div>
     )
