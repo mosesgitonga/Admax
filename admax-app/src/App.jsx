@@ -6,6 +6,7 @@ import InternetTheme from "./components/internetTheme";
 import Services from "./components/content/Services";
 import Catalog from "./components/catalog/Catalog";
 import AboutUs from "./components/about/About";
+import Map from "./components/map";
 
 const App = () => {
     return (
@@ -17,6 +18,7 @@ const App = () => {
             <Services />
             <Catalog />
             <AboutUs />
+            <Map width="800" height="600" />
             <InternetTheme />
         </div>
     )

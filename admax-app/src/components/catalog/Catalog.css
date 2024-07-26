@@ -7,6 +7,16 @@ h2 {
     color: #d82a2a;
   }
   
+.heading {
+  justify-content: center;
+}
+
+.heading p {
+  margin-left: 38%;
+  border: 1px solid #333;
+  width: fit-content;
+  justify-content: center;
+}
   .catalog {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -68,3 +78,12 @@ h2 {
     margin-right: 5px;
   }
   
+
+@media (max-width: 768px) {
+  .heading p {
+    margin-left: 0px;
+  
+    justify-content: center;
+  }
+  
+}

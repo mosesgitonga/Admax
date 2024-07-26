@@ -24,7 +24,11 @@ const Catalog = () => {
 
   return (
     <div>
-      <h2>Laptops For Sale</h2>
+      <div className="heading">
+        <h2>Laptops For Sale</h2>
+        <p>DEALS ON EX-UK LAPTOPS & ACCESSORIES</p>
+      </div>
+
       <div className="catalog">
         {items.map((item, index) => (
           <div key={index} className="catalog-item">

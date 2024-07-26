@@ -10,10 +10,10 @@ body {
 }
 
 .about-us-container {
-    padding: 40px 20px;
-    max-width: 1200px;
+    padding: 40px 10%;
+    max-width: 100%;
     margin: auto;
-    background: #1e1e1e;
+    background: lightblue;
     border-radius: 15px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     animation: fadeIn 2s ease-in-out;
@@ -30,16 +30,18 @@ body {
 .about-us-team {
     margin-bottom: 40px;
     padding: 20px;
-    background: linear-gradient(135deg, #ff416c, #ff4b2b);
+    background: linear-gradient(135deg, skyblue, dodgerblue);
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 5px skyblue;
     transform: translateY(30px);
     opacity: 0;
     animation: slideIn 1s ease-in-out forwards;
+    color: #333;
 }
 
 .about-us-header {
     text-align: center;
+    color: rgb(255, 255, 255);
 }
 
 .about-us-header h1 {
@@ -57,7 +59,7 @@ body {
 .about-us-team h2 {
     font-size: 2rem;
     margin-bottom: 15px;
-    color: #333;
+    color: #f04c4c;
 }
 
 .about-us-mission p,
