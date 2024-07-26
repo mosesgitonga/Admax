@@ -18,7 +18,8 @@ const Catalog = () => {
   const message = "Hello, I would like to know more about this product: ";
 
   const openWhatsApp = (item) => {
-    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message + item.name + " (" + item.price + ")")}`, '_blank', 'noopener,noreferrer');
+    const whatsappMessage = `${message}${item.name} (${item.price}). Check out the image here: ${window.location.origin}/${item.image}`;
+    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`, '_blank', 'noopener,noreferrer');
   };
 
   return (
