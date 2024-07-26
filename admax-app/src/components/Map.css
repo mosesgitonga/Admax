@@ -1,9 +1,9 @@
 .mapContainer {
-    display:  Flex;
-    margin: 20px 10px 20px 40px;
+    display:  flex;;
     justify-content: space-between;
     background-color: skyblue;
     border-radius: 50px;
+    width: 95%;
 }
 
 .mapContainer .location {
@@ -13,4 +13,18 @@
 
 .mapContainer h2 {
     color: white;
+}
+
+.mapContainer iframe{
+    padding: 30px;
+}
+
+@media (max-width: 768px) {
+    .mapContainer {
+        display: block;
+    }
+
+    .mapContainer iframe {
+        width: 100%;
+    }
 }

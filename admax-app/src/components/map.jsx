@@ -1,7 +1,7 @@
 import React from "react";
 import "./Map.css"
 
-const Map = ({ width = "600", height = "450" }) => {
+const Map = ({ width = "100%", height = "450" }) => {
     return (
         <div>
             <div className="mapContainer">
