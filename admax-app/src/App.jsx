@@ -6,6 +6,7 @@ import Services from "./components/content/Services";
 import Catalog from "./components/catalog/Catalog";
 import AboutUs from "./components/about/About";
 import Map from "./components/map";
+import Footer from "./components/footer/Footer";
 
 const App = () => {
     return (
@@ -18,6 +19,7 @@ const App = () => {
             <Catalog />
             <AboutUs />
             <Map width="800" height="600" />
+            <Footer />
         </div>
     )
 }

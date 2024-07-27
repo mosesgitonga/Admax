@@ -8,7 +8,7 @@ const Map = ({ width = "100%", height = "450" }) => {
             <div className="mapContainer">
                 <div className="location">
                     <h2>Visit Us Today</h2>
-                    <p>We are Located at Batian house - Gakere Road - Nyeri</p>
+                    <p>We are Located in Nyeri Town, Old Batian Building Ground floor Shop No. NG21. Call us on 0711279189</p>
                     <InternetTheme />
                 </div>
                 <iframe
