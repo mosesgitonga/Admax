@@ -13,7 +13,7 @@ body {
     padding: 40px 10%;
     max-width: 100%;
     margin: auto;
-    background: lightblue;
+    background: skyblue;
     border-radius: 15px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     animation: fadeIn 2s ease-in-out;
