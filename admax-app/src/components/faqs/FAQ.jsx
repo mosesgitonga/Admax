@@ -13,7 +13,7 @@ const FAQS = () => {
         },
         {
             question: "Where are you located?",
-            answer: "We are in the heart of Nyeri Town, Old Batian Building Ground floor Shop No. NG21. Just follow the sound of happy, working computers and you'll find us."
+            answer: "We are in the heart of Nyeri Town, Old Batian Building Ground floor Shop No. NG21 Or you can just follow the sound of happy, working computers and you'll find us."
         },
         {
             question: "Do you offer home service repairs?",
