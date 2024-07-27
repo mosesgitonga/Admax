@@ -4,7 +4,7 @@ import InternetTheme from "./internetTheme";
 
 const Map = ({ width = "100%", height = "450" }) => {
     return (
-        <div>
+        <div id="contact-us">
             <div className="mapContainer">
                 <div className="location">
                     <h2>Visit Us Today</h2>

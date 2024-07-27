@@ -3,7 +3,7 @@ import './About.css';
 
 const AboutUs = () => {
     return (
-        <div className="about-us-container">
+        <div id="about-us" className="about-us-container">
             <section className="about-us-header">
                 <h1>About Us</h1>
                 <p>Welcome to Admax Tech Solutions. We are dedicated to providing the best tech solutions for your business.</p>

@@ -15,11 +15,11 @@ const NavBar = ({ menuOpen }) => {
 
   return (
     <nav className={`top-nav ${menuOpen ? 'open' : ''}`}>
-      <Link id="link" to="/">Home</Link>
+      <a id="link" href="#">Home</a>
       <a id="link" href="#services">Services</a>
-      <Link id="link" to="/gallery">Gallery</Link>
-      <Link id="link" to="/about-us">About Us</Link>
-
+      <a id="link" href="#catalog">Catalog</a>
+      <a id="link" href="#about-us">About Us</a>
+      <a id="link" href="#contact-us" >Contact Us</a>
     </nav>
   );
 };

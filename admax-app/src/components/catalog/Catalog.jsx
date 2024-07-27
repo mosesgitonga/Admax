@@ -23,7 +23,7 @@ const Catalog = () => {
   };
 
   return (
-    <div>
+    <div id="catalog">
       <div className="heading">
         <h2>Laptops For Sale</h2>
         <p>DEALS ON EX-UK LAPTOPS & ACCESSORIES</p>

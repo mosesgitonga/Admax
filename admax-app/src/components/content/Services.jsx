@@ -20,7 +20,7 @@ const Services = () => {
   };
 
   return (
-    <div className="services-container">
+    <div id="services" className="services-container">
       <h1 className="services-title">Our Services</h1>
       <div className={`marquee ${isHovered ? 'paused' : ''}`}>
         <div className="marquee-content">

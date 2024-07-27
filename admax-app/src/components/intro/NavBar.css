@@ -22,15 +22,15 @@
     gap: 20px; /* Adjust the gap between links */
   }
   
-  .nav-link {
+  #link {
     text-decoration: none;
-    color: white;
+    color: rgb(245, 14, 14);
     box-shadow: dodgerblue 0px 5px 10px;
     padding: 15px;
     border-radius: 15px;
   }
   
-  .nav-link:hover {
+  #link:hover {
     background-color: dodgerblue;
   }
   
