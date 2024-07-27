@@ -49,4 +49,12 @@
   .menu-toggle {
     display: block;
   }
+
+  .header .bar  img {
+    padding: 5px;
+    position: relative;
+    width: 31%;
+    height: 100%;
+    border-radius: 50px;
+  }
 }
