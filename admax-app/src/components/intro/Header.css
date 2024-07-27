@@ -33,6 +33,13 @@
   color: black
 }
 
+.header .bar  img {
+  padding: 5px;
+  position: relative;
+  width: 10%;
+  height: 100%;
+  border-radius: 50px;
+}
 .menu-toggle {
   display: none;
   cursor: pointer;

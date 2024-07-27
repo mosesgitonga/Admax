@@ -68,7 +68,7 @@ const Header = () => {
       </Helmet>
       <header className="header">
         <div className="bar">
-          <h1>Admax Tech Solutions</h1>
+          <img src="logo.jpg" alt="logo" />
         </div>
         <NavBar menuOpen={menuOpen} />
         <div className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
