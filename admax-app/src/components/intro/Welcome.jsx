@@ -10,7 +10,7 @@ const Welcome = () => {
           <p>Affordable | Fast | Trusted | Service</p>
         </div>
         <div className="image">
-            <img src="laptops/welcome3.jpg" alt="phone image"/>
+            <img src="main.jpg" alt="phone image"/>
         </div>
       </section>
     </div>
