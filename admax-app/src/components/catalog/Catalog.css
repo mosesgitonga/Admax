@@ -1,91 +1,124 @@
-/* Catalog.css */
-
 h2 {
-    text-align: center;
-    margin: 20px 0;
-    font-size: 2em;
-    color: #d82a2a;
-  }
-  
+  text-align: center;
+  margin: 20px 0;
+  font-size: 2em;
+  color: #d82a2a;
+}
+
 .heading {
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .heading p {
-  margin-left: 38%;
   border: 1px solid #333;
   width: fit-content;
-  justify-content: center;
+  text-align: center;
 }
-  .catalog {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    padding: 20px;
-  }
-  
-  .catalog-item {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .item-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-  
-  .item-details {
-    padding: 10px;
-  }
-  
-  .item-name {
-    font-size: 1.2em;
-    margin: 10px 0;
-  }
-  
-  .item-price {
-    color: #d82a2a;
-    font-weight: bold;
-  }
-  
-  .item-description {
-    font-size: 0.9em;
-    color: #555;
-  }
-  
-  .whatsapp-button {
-    display: inline-flex;
-    align-items: center;
-    background-color: #25d366;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.9em;
-    margin-top: 10px;
-  }
-  
-  .whatsapp-button:hover {
-    background-color: #1ebe54;
-  }
-  
-  .whatsapp-button svg {
-    margin-right: 5px;
-  }
-  
+
+.search-input {
+  width: 80%;
+  max-width: 400px;
+  padding: 10px 20px;
+  font-size: 1em;
+  border: 2px solid #d82a2a;
+  border-radius: 25px;
+  margin: 20px 0;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  box-shadow: 0 0 10px skyblue;
+  border-color: skyblue;
+}
+
+.search-input::placeholder {
+  color: skyblue;
+}
+
+.search-input:hover {
+  box-shadow: 0 0 10px skyblue;
+}
+
+.catalog {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.catalog-item {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.catalog-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.item-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.item-details {
+  padding: 10px;
+}
+
+.item-name {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+.item-price {
+  color: #d82a2a;
+  font-weight: bold;
+}
+
+.item-description {
+  font-size: 0.9em;
+  color: #555;
+}
+
+.whatsapp-button {
+  display: inline-flex;
+  align-items: center;
+  background-color: #25d366;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.whatsapp-button:hover {
+  background-color: #1ebe54;
+}
+
+.whatsapp-button svg {
+  margin-right: 5px;
+}
 
 @media (max-width: 768px) {
   .heading p {
-    margin-left: 0px;
-  
-    justify-content: center;
+      margin-left: 0;
+      justify-content: center;
   }
-  
+
+  .search-input {
+      width: 90%;
+  }
 }
 
 .seeAll {
@@ -101,9 +134,9 @@ h2 {
   border-radius: 50px;
 }
 
-.seeAll a{
+.seeAll a {
   color: rgb(248, 4, 4);
-  font-weight: 1000px;
-  font-size:  30px;
+  font-weight: 1000;
+  font-size: 30px;
   padding-left: 30%;
 }

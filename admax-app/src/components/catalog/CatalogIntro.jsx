@@ -52,7 +52,7 @@ const CatalogIntro = () => {
       </div>
 
       <div className="seeAll">
-        <Link to="/catalog">See All Products</Link>
+        <Link to="/catalog#top">See All Products</Link>
       </div>
     </div>
   );
