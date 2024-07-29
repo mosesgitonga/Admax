@@ -87,3 +87,23 @@ h2 {
   }
   
 }
+
+.seeAll {
+  margin: 0 auto;
+  margin-top: 40px;
+  width: 40%;
+  box-shadow: 0px 10px 30px rgb(10, 213, 240);
+  height: fit-content;
+  margin-bottom: 30px;
+  align-items: center;
+  justify-content: center;
+  background-color: skyblue;
+  border-radius: 50px;
+}
+
+.seeAll a{
+  color: rgb(248, 4, 4);
+  font-weight: 1000px;
+  font-size:  30px;
+  padding-left: 30%;
+}

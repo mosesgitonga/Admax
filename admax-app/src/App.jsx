@@ -3,7 +3,7 @@ import Header from "./components/intro/Header";
 import Welcome from "./components/intro/Welcome";
 import "./App.css"
 import Services from "./components/content/Services";
-import Catalog from "./components/catalog/Catalog";
+import CatalogIntro from "./components/catalog/CatalogIntro";
 import AboutUs from "./components/about/About";
 import Map from "./components/map";
 import Footer from "./components/footer/Footer";
@@ -17,7 +17,7 @@ const App = () => {
                 <Welcome />
             </div>
             <Services />
-            <Catalog />
+            <CatalogIntro />
             <AboutUs />
             <FAQS />
             <Map width="800" height="600" />

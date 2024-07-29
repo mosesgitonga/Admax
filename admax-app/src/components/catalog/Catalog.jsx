@@ -5,13 +5,45 @@ import "./Catalog.css";
 
 const Catalog = () => {
   const items = [
-    { image: "laptops/images.jpeg", name: "item 1", price: "ksh 100", description: "AI powered" },
-    { image: "laptops/images1.jpeg", name: "item 2", price: "ksh 5,000", description: "Good product" },
-    { image: "laptops/images3.jpeg", name: "item 3", price: "ksh 50,000", description: "powerful laptop" },
-    { image: "laptops/images4.jpeg", name: "item 4", price: "ksh 90,000", description: "best seller laptop" },
-    { image: "laptops/images5.jpeg", name: "item 5", price: "ksh 79,022", description: "perfect condition laptop" },
-    { image: "laptops/images6.jpeg", name: "item 6", price: "ksh 10,234", description: "another product" },
-    { image: "laptops/Untitled.jpeg", name: "item 7", price: "ksh 3999", description: "some short description" }
+    { image: "products/Hp 840.jpeg", name: "HP 840 G3", price: "ksh 27,000", description: 'Laptop comes with 14" HD Display, intel core i5-6300U, 2.4GhZ, 256GB SSD, 8GB DDR4 RAM' },
+    { image: "products/lenovo x240.jpeg", name: "Lenovo X240", price: "ksh 24,000", description: 'Laptop comes with 12.5" HD Display, intel core i5-4300U, 128GB SSD, 8GB DDR4 RAM'},
+    { image: "products/lenovo s240.jpeg", name: "Lenovo X240", price: "ksh 21,000", description: 'Laptop comes with 12.5" HD Display, intel core i5-4210U, 500GB HDD, 4GB DDR3 RAM' },
+    { image: "products/huawei xpon.jpeg", name: "Huawei XPON", price: "ksh 4,500", description: "" },
+    { image: "products/acer adapter.jpeg", name: "Acer Adapter", price: "ksh 1,500", description: "65w" },
+    { image: "products/type c adpater laptop.jpeg", name: "Type C Adapter", price: "ksh 4,000", description: "For all type C laptops, tablets etc. Max 65w" },
+    { image: "products/Hp Big pin.jpeg", name: "HP big pin", price: "ksh 1,500", description: "65w" },
+
+    { image: "products/toshiba jack.jpeg", name: "Toshiba", price: "ksh 1,500", description: 'Barrel jack, 65w'},
+    { image: "products/lenovo big pin.jpeg", name: "Lenovo big pin", price: "ksh 1,500", description: ' 65w'},
+    { image: "products/lenovo usb.jpeg", name: "Lenovo USB", price: "ksh 1,500", description: '65w' },
+    { image: "products/Hp blue pin.jpeg", name: "HP blue pin", price: "ksh 1,500", description: "65w" },
+    { image: "products/jbw tws4.jpeg", name: "JBL TWS4", price: "ksh 1,500", description: "" },
+    { image: "products/m10 buds.jpeg", name: "M10 buds", price: "ksh 1,500", description: "" },
+    { image: "products/freepods otw.jpeg", name: "Freepods", price: "ksh 2,000", description: "OTW-330" },
+
+    { image: "products/s4 speaker.jpeg", name: "S4 speaker", price: "ksh 1,500", description: '65w'},
+    { image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxr5fAiyG6zJJhPVxH6qTXkt1JDkAMlmsrWA&s", name: "BT Speaker", price: "ksh 2,000", description: ''},
+    { image: "products/logitech m185.jpeg", name: "Logitech m185", price: "ksh 1,000", description: '' },
+    { image: "products/hdd casing.jpeg", name: "HDD casing", price: "ksh 600", description: "" },
+    { image: "products/wired mouse.jpeg", name: "Wired Mouse", price: "ksh 450", description: "" },
+    { image: "products/wireless mouse.jpeg", name: "Wireless Mouse", price: "ksh 600", description: "" },
+    { image: "products/necklace 4.jpeg", name: "Necklace 4", price: "ksh 4,500", description: "OEB-E50D" },
+
+    { image: "products/oraimo watch plus.jpeg", name: "Oraimo watch 4 plus", price: "ksh 4,500", description: 'OSW 801'},
+    { image: "products/256 ssd.jpeg", name: "256GB SSD", price: "ksh 4,500", description: ''},
+    { image: "products/512 ssd.jpeg", name: "512GB SSD", price: "ksh 6,500", description: '' },
+    { image: "products/128gb ssd.jpeg", name: "128GB SSD", price: "ksh 3,500", description: "" },
+    { image: "products/wd elements.jpeg", name: "WD Elements", price: "ksh 1,200", description: "" },
+    { image: "products/lenovo x240.jpeg", name: "Lenovo X240", price: "ksh 25,000",  description: "Core i5, RAM 4GB, 500GB HDD" },
+    { image: "products/hdcvi.jpeg", name: "HDCVI DIGITAL VIDEO RECORDER", price: "ksh 2,000", description: "" },
+
+    { image: "products/tenda n300.jpeg", name: "TENDA F3 N300", price: "ksh 2,000", description: ''},
+    { image: "products/vga2hdmi.jpeg", name: "VGA TO HDMI CONVERTER", price: "ksh 2,000", description: ''},
+    { image: "products/hp casing.jpeg", name: "HP LAPTOP CASING", price: "ksh 5,000", description: '' },
+    { image: "products/laptop casing.jpeg", name: "LAPTOP CASINGS", price: "ksh 4,500", description: "" },
+    { image: "products/hp touchpad.jpeg", name: "HP 840 g3 TOUCHPAD", price: "ksh ", description: "" },
+    { image: "products/notebook.jpeg", name: "hp Notebook 255", price: "ksh 16,000",  description: "255 G1 Intel, 4GB RAM, 500GB Harddrive" },
+    { image: "products/cctv.jpeg", name: "Full color dahua CCTV Camera", price: "ksh 3,500", description: "" },
   ];
 
   const phoneNumber = "+254711279189";

@@ -42,18 +42,13 @@ const Footer = () => {
         <div className="footer-section social">
           <h2 className="footer-title">Follow Us</h2>
           <div className="social-icons">
-            <a href="https://www.facebook.com/admaxtechsolutions" target="_blank" rel="noopener noreferrer">
+            <a href="https://web.facebook.com/mike.manaseh.7" target="_blank" rel="noopener noreferrer">
               <FontAwesomeIcon icon={faFacebook} />
             </a>
-            <a href="https://twitter.com/admaxtech" target="_blank" rel="noopener noreferrer">
+            <a href="https://x.com/miketechguyke" target="_blank" rel="noopener noreferrer">
               <FontAwesomeIcon icon={faTwitter} />
             </a>
-            <a href="https://www.instagram.com/admaxtech" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faInstagram} />
-            </a>
-            <a href="https://www.linkedin.com/company/admaxtechsolutions" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faLinkedin} />
-            </a>
+
             <a href={`https://wa.me/+254711279189`} target="_blank" rel="noopener noreferrer">
               <FontAwesomeIcon icon={faWhatsapp} />
             </a>
