@@ -45,7 +45,7 @@ const CatalogIntro = () => {
         {items.map((item, index) => (
           <div key={index} className="catalog-item">
             <div className="item-image">
-              <img src={item.image || "placeholder.png"} alt={item.name} />
+              <img loading="lazy" src={item.image || "placeholder.png"} alt={item.name} />
             </div>
             <div className="item-details">
               <h3 className="item-name">{item.name}</h3>
