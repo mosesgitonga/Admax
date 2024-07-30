@@ -56,7 +56,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer-bottom">
-        &copy; {new Date().getFullYear()} Admax Tech Solutions | All Rights Reserved
+        &copy; {new Date().getFullYear()} Admax Tech Solutions | All Rights Reserved | Developed By <a href="https://moses-gitonga.vercel.app" target="_blank">Moses Gitonga</a>
       </div>
     </footer>
   );
