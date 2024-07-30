@@ -13,7 +13,7 @@ const CatalogIntro = () => {
     { image: "products/acer adapter.jpeg", name: "Acer Adapter", price: "ksh 1,500", description: "65w" },
     { image: "products/type c adpater laptop.jpeg", name: "Type C Adapter", price: "ksh 4,000", description: "For all type C laptops, tablets etc. Max 65w" },
     { image: "products/Hp Big pin.jpeg", name: "HP big pin", price: "ksh 1,500", description: "65w" },
-    { image: "products/hdcvi.jpeg", name: "HDCVI DIGITAL VIDEO RECORDER", price: "ksh 2,000", description: "" },
+    { image: "products/hdcvi.jpeg", name: "HDCVI DIGITAL VIDEO RECORDER", price: "ksh 7,000", description: "" },
     { image: "products/Hp blue pin.jpeg", name: "HP blue pin", price: "ksh 1,500", description: "65w" },
     { image: "products/m10 buds.jpeg", name: "M10 buds", price: "ksh 1,500", description: "" },
   ];

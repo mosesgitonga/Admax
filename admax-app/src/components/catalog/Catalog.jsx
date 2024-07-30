@@ -35,7 +35,7 @@ const Catalog = () => {
     { image: "products/128gb ssd.jpeg", name: "128GB SSD", price: "ksh 3,500", description: "" },
     { image: "products/wd elements.jpeg", name: "WD Elements", price: "ksh 1,200", description: "" },
     { image: "products/lenovo x240.jpeg", name: "Lenovo X240", price: "ksh 25,000", description: "Core i5, RAM 4GB, 500GB HDD" },
-    { image: "products/hdcvi.jpeg", name: "HDCVI DIGITAL VIDEO RECORDER", price: "ksh 2,000", description: "" },
+    { image: "products/hdcvi.jpeg", name: "HDCVI DIGITAL VIDEO RECORDER", price: "ksh 7,000", description: "" },
     { image: "products/tenda n300.jpeg", name: "TENDA F3 N300", price: "ksh 2,000", description: '' },
     { image: "products/vga2hdmi.jpeg", name: "VGA TO HDMI CONVERTER", price: "ksh 2,000", description: '' },
     { image: "products/hp casing.jpeg", name: "HP LAPTOP CASING", price: "ksh 5,000", description: '' },
