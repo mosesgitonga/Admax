@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import "./Catalog.css";
 
 const CatalogIntro = () => {
@@ -26,10 +26,18 @@ const CatalogIntro = () => {
     window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`, '_blank', 'noopener,noreferrer');
   };
 
+  const handleSeeAllClick = () => {
+    window.scrollTo(0, 0);
+  };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div id="catalog">
       <div className="heading">
-        <h2>Laptops For Sale</h2>
+        <h2>Laptops & Accessories For Sale</h2>
         <p>DEALS ON EX-UK LAPTOPS & ACCESSORIES</p>
       </div>
 
@@ -52,7 +60,7 @@ const CatalogIntro = () => {
       </div>
 
       <div className="seeAll">
-        <Link to="/catalog#top">See All Products</Link>
+        <Link to="/catalog#top" onClick={handleSeeAllClick}>See All Products</Link>
       </div>
     </div>
   );

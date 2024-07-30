@@ -7,6 +7,8 @@ const Services = () => {
     { heading: "PHONE REPAIRS", image: "IMG-20240723-WA0003.jpg", paragraph: "We test, diagnose troubleshoot and repair smartphones and tablets" },
     { heading: "PHONE SCREEN REPLACEMENT", image: "IMG-20240723-WA0004.jpg", paragraph: "We fix the phone by replacing the entire screen including lcd & touchscreen plus a free screen protector as a bonus" },
     { heading: "RAM REPLACEMENT", image: "IMG-20240723-WA0007.jpg", paragraph: "We replace & upgrade RAM to give you faster boot-up and shutdown times, as well as smoother program launches and task executions"},
+    { heading: "KEYBOARD REPLACEMENT", image: "keyboard.webp", paragraph: "We replace faulty or damaged keyboards on laptops and desktops, ensuring full functionality and comfort." },
+    { heading: "SSD & HDD Replacement", image: "ssd&hdd.jpeg", paragraph: "We offer SSD & HDD replacement services to improve your system's storage capacity and performance, including data migration." }
   ];
 
   const [isHovered, setIsHovered] = useState(false);

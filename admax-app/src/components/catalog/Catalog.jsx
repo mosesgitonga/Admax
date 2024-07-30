@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import "./Catalog.css";
+import Header from "../intro/Header";
 
 const Catalog = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -61,9 +62,9 @@ const Catalog = () => {
 
 
   return (
-    <div id="top">
-      <div  className="heading">
-        <h2>Laptops For Sale</h2>
+    <div>
+      <div id="top" className="heading">
+        <h2>Laptops & Accesories For Sale</h2>
         <p>DEALS ON EX-UK LAPTOPS & ACCESSORIES</p>
         <input
           type="text"
