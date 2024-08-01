@@ -36,7 +36,7 @@ class RippleButton extends React.Component {
         className="button"
         onClick={(e) => {
           this.createRipple(e);
-          window.open('https://wa.me/yourphonenumber', '_blank');
+          window.open('https://wa.me/0711279189?text="Hello, \nI would like to get my device fixed."', '_blank');
         }}
       >
         Get Your Device Fixed
