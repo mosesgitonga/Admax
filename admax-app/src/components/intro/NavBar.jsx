@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import './NavBar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import RippleButton from "./deviceFixButton";
+
 
 const NavBar = ({ menuOpen }) => {
   const phoneNumber = "+254711279189"; 
@@ -19,7 +21,8 @@ const NavBar = ({ menuOpen }) => {
       <a id="link" href="#services">Services</a>
       <a id="link" href="#catalog">Catalog</a>
       <a id="link" href="#about-us">About Us</a>
-      <a id="link" href="#contact-us" >Contact Us</a>
+      <RippleButton className="rippleBtn" />
+
     </nav>
   );
 };

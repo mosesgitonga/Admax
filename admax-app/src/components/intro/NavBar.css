@@ -59,5 +59,9 @@
     .top-nav.open {
       display: flex;
     }
+
+    .rippleBtn {
+      background-color: brown;
+    }
   }
   

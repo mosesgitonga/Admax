@@ -27,6 +27,7 @@
   margin-bottom: 20px;
 }
 
+
 .bar h1 {
   margin: 0;
   z-index: 1000;
@@ -39,6 +40,11 @@
   width: 12%;
   height: 100%;
   border-radius: 50px;
+}
+
+.bar {
+  display: flex;
+  flex: row;
 }
 .menu-toggle {
   display: none;
@@ -57,4 +63,6 @@
     height: 100%;
     border-radius: 50px;
   }
+
+
 }

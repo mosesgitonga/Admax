@@ -70,6 +70,8 @@ const Header = () => {
         <div className="bar">
           <img src="logo.jpg" alt="logo" />
         </div>
+
+
         <NavBar menuOpen={menuOpen} />
         <div className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
           {menuOpen ? <FontAwesomeIcon icon={faTimes} /> : <FontAwesomeIcon icon={faBars} />}
