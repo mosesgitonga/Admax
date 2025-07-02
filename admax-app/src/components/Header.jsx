@@ -6,7 +6,7 @@ function Header() {
     <header className="header">
       <div className="header-container">
         <h1 className="header-title">
-          TechTrend Innovations
+            Admax Tech Solutions
         </h1>
         <nav 
           className="header-nav"
