@@ -1,0 +1,40 @@
+import React from 'react';
+import './styles/Header.css';
+
+function Header() {
+  return (
+    <header className="header">
+      <div className="header-container">
+        <h1 className="header-title">
+          TechTrend Innovations
+        </h1>
+        <nav 
+          className="header-nav"
+          aria-label="Main navigation"
+        >
+          <a 
+            href="#" 
+            className="header-link"
+            aria-current="page"
+          >
+            Home
+          </a>
+          <a 
+            href="#cart" 
+            className="header-link"
+          >
+            Cart
+          </a>
+          <a 
+            href="#account" 
+            className="header-link"
+          >
+            Account
+          </a>
+        </nav>
+      </div>
+    </header>
+  );
+}
+
+export default Header;
