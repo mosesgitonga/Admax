@@ -42,6 +42,7 @@ function CategoryList() {
   ];
 
   const [currentItem, setCurrentItem] = useState(0);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -49,6 +50,10 @@ function CategoryList() {
     }, 5000);
     return () => clearInterval(interval);
   }, [featuredItems.length]);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
     <section 
@@ -82,8 +87,16 @@ function CategoryList() {
             </div>
           </div>
         </div>
+        <button
+          className="hamburger-button"
+          onClick={toggleMenu}
+          aria-expanded={isMenuOpen}
+          aria-label={isMenuOpen ? 'Close category menu' : 'Open category menu'}
+        >
+          <span className="hamburger-icon"></span>
+        </button>
         <ul 
-          className="category-list"
+          className={`category-list ${isMenuOpen ? 'category-list--open' : ''}`}
           role="list"
         >
           {categories.map((category, index) => (
@@ -95,6 +108,7 @@ function CategoryList() {
                 href={`#${category.toLowerCase().replace(/\s+/g, '-')}`} 
                 className="category-link"
                 aria-label={`Explore ${category} category`}
+                onClick={() => setIsMenuOpen(false)}
               >
                 {category}
               </a>
