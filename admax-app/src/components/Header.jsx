@@ -23,13 +23,13 @@ function Header() {
             href="#cart" 
             className="header-link"
           >
-            Cart
+            Products
           </a>
           <a 
             href="#account" 
             className="header-link"
           >
-            Account
+            About Us
           </a>
         </nav>
       </div>

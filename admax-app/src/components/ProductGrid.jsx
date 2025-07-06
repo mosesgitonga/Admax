@@ -32,12 +32,15 @@ function ProductGrid({ products }) {
                 <p className="product-price">
                   ${product.price.toFixed(2)}
                 </p>
-                <button 
+                <a 
+                  href={`https://wa.me/?text=I'm%20interested%20in%20${encodeURIComponent(product.name)}%20priced%20at%20$${product.price.toFixed(2)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="product-button"
-                  aria-label={`Add ${product.name} to cart`}
+                  aria-label={`Buy ${product.name} now via WhatsApp`}
                 >
-                  Add to Cart
-                </button>
+                  Buy Now
+                </a>
               </div>
             </article>
           ))}
