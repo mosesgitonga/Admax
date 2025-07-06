@@ -23,23 +23,28 @@ function CategoryList({ onCategorySelect, selectedCategory }) {
   const featuredItems = [
     {
       id: 1,
-      name: 'Gaming Laptop',
-      description: 'Unleash epic performance with cutting-edge GPUs.',
-      image: 'https://via.placeholder.com/400x300?text=Gaming+Laptop',
+      name: 'Gaming Laptop Pro',
+      description: 'Experience gaming like never before with top-tier GPUs!',
+      image: 'https://via.placeholder.com/1200x400?text=Gaming+Laptop+Pro',
+      cta: 'Shop Now'
     },
     {
       id: 2,
       name: 'Wireless Mouse',
-      description: 'Precision control for seamless productivity.',
-      image: 'https://via.placeholder.com/400x300?text=Wireless+Mouse',
+      description: 'Boost productivity with ergonomic precision.',
+      image: 'https://via.placeholder.com/1200x400?text=Wireless+Mouse',
+      cta: 'Shop Now'
     },
     {
       id: 3,
       name: 'Antivirus Software',
-      description: 'Protect your digital world with top-tier security.',
-      image: 'https://via.placeholder.com/400x300?text=Antivirus+Software',
+      description: 'Secure your digital world with advanced protection.',
+      image: 'https://via.placeholder.com/1200x400?text=Antivirus+Software',
+      cta: 'Shop Now'
     },
   ];
+
+  const WHATSAPP_NUMBER = import.meta.env.VITE_WHATSAPP_NUMBER || '1234567890';
 
   const [currentItem, setCurrentItem] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -120,28 +125,27 @@ function CategoryList({ onCategorySelect, selectedCategory }) {
           </ul>
         </nav>
         {!selectedCategory && (
-          <div className="category-content">
-            <div className="category-text">
-              <h2 
-                id="category-heading" 
-                className="category-heading"
-              >
-                Explore Our Tech Universe
-              </h2>
-              <p className="category-description">
-                Dive into a galaxy of cutting-edge technology. From high-performance laptops to robust security solutions, find the gear that powers your future.
-              </p>
-            </div>
+          <div className="category-content fullwidth">
             <div className="category-banner">
               <div className="banner-item">
                 <img 
                   src={featuredItems[currentItem].image} 
                   alt={featuredItems[currentItem].name} 
                   className="banner-image"
+                  loading="lazy"
                 />
                 <div className="banner-content">
                   <h3 className="banner-title">{featuredItems[currentItem].name}</h3>
                   <p className="banner-description">{featuredItems[currentItem].description}</p>
+                  <a
+                    href={`https://wa.me/${WHATSAPP_NUMBER}?text=I'm%20interested%20in%20${encodeURIComponent(featuredItems[currentItem].name)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="banner-cta"
+                    aria-label={`Shop ${featuredItems[currentItem].name} now via WhatsApp`}
+                  >
+                    {featuredItems[currentItem].cta}
+                  </a>
                 </div>
               </div>
             </div>

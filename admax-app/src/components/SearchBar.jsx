@@ -25,4 +25,4 @@ function SearchBar({ onSearch }) {
   );
 }
 
-export default SearchBar;
+export default React.memo(SearchBar);

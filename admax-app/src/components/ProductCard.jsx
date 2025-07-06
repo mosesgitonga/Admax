@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { memo } from 'react';
 import './styles/ProductCard.css';
+
+const WHATSAPP_NUMBER = import.meta.env.VITE_WHATSAPP_NUMBER || '1234567890';
 
 function ProductCard({ product }) {
   const handleImageError = (e) => {
-    e.target.src = '/images/fallback.png'; // fallback image in public/images
+    e.target.src = '/images/fallback.png';
   };
 
   return (
@@ -12,6 +14,8 @@ function ProductCard({ product }) {
         src={product.image} 
         alt={product.name} 
         className="product-image"
+        onError={handleImageError}
+        loading="lazy"
       />
       <div className="product-info">
         <h3 className="product-name">{product.name}</h3>
@@ -19,15 +23,18 @@ function ProductCard({ product }) {
         {product.description && (
           <p className="product-description">{product.description}</p>
         )}
-        <button 
+        <a 
+          href={`https://wa.me/${WHATSAPP_NUMBER}?text=I'm%20interested%20in%20${encodeURIComponent(product.name)}%20priced%20at%20$${product.price.toFixed(2)}`}
+          target="_blank"
+          rel="noopener noreferrer"
           className="product-button"
-          aria-label={`Add ${product.name} to cart`}
+          aria-label={`Buy ${product.name} now via WhatsApp`}
         >
-          Add to Cart
-        </button>
+          Buy Now
+        </a>
       </div>
     </article>
   );
 }
 
-export default ProductCard;
+export default memo(ProductCard);

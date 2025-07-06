@@ -3,19 +3,12 @@ import Header from './components/Header';
 import SearchBar from './components/SearchBar';
 import CategoryList from './components/CategoryList';
 import ProductGrid from './components/ProductGrid';
+import products from './data/products';
 import './App.css';
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
-
-  const products = [
-    { id: 1, name: 'Gaming Laptop Pro', price: 1299.99, image: 'https://via.placeholder.com/400x300?text=Gaming+Laptop', category: 'Laptops' },
-    { id: 2, name: 'Wireless Mouse', price: 49.99, image: 'https://via.placeholder.com/400x300?text=Wireless+Mouse', category: 'Accessories' },
-    { id: 3, name: 'Antivirus Software', price: 29.99, image: 'https://via.placeholder.com/400x300?text=Antivirus+Software', category: 'Utilities, Anti-virus, Security' },
-    { id: 4, name: 'Refurbished Desktop', price: 599.99, image: 'https://via.placeholder.com/400x300?text=Desktop', category: 'Refurbished Deals' },
-    { id: 5, name: 'Gaming Headset', price: 89.99, image: 'https://via.placeholder.com/400x300?text=Headset', category: 'Gaming' },
-  ];
 
   const filteredProducts = selectedCategory
     ? products.filter(product => product.category === selectedCategory)
@@ -25,6 +18,7 @@ function App() {
 
   const handleCategorySelect = (category) => {
     setSelectedCategory(category);
+    setSearchQuery(''); // Reset search when selecting a category
   };
 
   const handleSearch = (query) => {
