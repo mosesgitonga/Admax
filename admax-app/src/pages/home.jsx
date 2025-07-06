@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import Header from '../components/Header';
-import SearchBar from '../components/SearchBar';
 import CategoryList from '../components/CategoryList';
 import ProductGrid from '../components/ProductGrid';
 import products from '../data/products';
@@ -14,7 +13,7 @@ function Home() {
   const [error, setError] = useState(null);
 
   // Simulate async fetch (toggleable for static data)
-  const USE_STATIC_DATA = false; // Set to true to bypass async fetch for testing
+  const USE_STATIC_DATA = false; // Set to true to bypass async fetch
 
   useEffect(() => {
     if (USE_STATIC_DATA) {
@@ -27,7 +26,6 @@ function Home() {
       setIsLoading(true);
       setError(null);
       try {
-        // Simulate API delay
         await new Promise(resolve => setTimeout(resolve, 1000));
         setFetchedProducts(products);
       } catch (error) {
@@ -52,8 +50,7 @@ function Home() {
   if (error) {
     return (
       <div className="home-container">
-        <Header />
-        <SearchBar onSearch={setSearchTerm} />
+        <Header onSearch={setSearchTerm} />
         <CategoryList onCategorySelect={setSelectedCategory} selectedCategory={selectedCategory} />
         <div className="error-message">{error}</div>
       </div>
@@ -62,8 +59,7 @@ function Home() {
 
   return (
     <div className="home-container">
-      <Header />
-      <SearchBar onSearch={setSearchTerm} />
+      <Header onSearch={setSearchTerm} />
       <CategoryList onCategorySelect={setSelectedCategory} selectedCategory={selectedCategory} />
       <ProductGrid products={filteredProducts} isLoading={isLoading} />
     </div>

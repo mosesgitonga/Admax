@@ -29,7 +29,6 @@ function App() {
   return (
     <div className="app-container">
       <Header />
-      <SearchBar onSearch={handleSearch} />
       <CategoryList onCategorySelect={handleCategorySelect} selectedCategory={selectedCategory} />
       {filteredProducts.length > 0 ? (
         <ProductGrid products={filteredProducts} />

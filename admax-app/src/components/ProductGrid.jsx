@@ -4,9 +4,6 @@ import './styles/ProductGrid.css';
 function ProductGrid({ products, isLoading }) {
   const WHATSAPP_NUMBER = import.meta.env.VITE_WHATSAPP_NUMBER || '1234567890';
 
-  const handleImageError = (e) => {
-    e.target.src = '/images/fallback.png';
-  };
 
   return (
     <section 
