@@ -1,41 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
 .header {
-  background: #1a202c;
-  color: white;
-  padding: 1rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  background: #ffffff;
+  color: #333;
+  padding: 0.75rem 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 }
 .header-container {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1rem;
   flex-wrap: wrap;
 }
 .header-title {
-  font-size: clamp(1.5rem, 5vw, 1.875rem);
+  font-family: 'Roboto', sans-serif;
+  font-size: clamp(1.25rem, 4vw, 1.5rem);
   font-weight: 700;
-  background: linear-gradient(to right, #f97316, #fb923c);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: #f68b1e;
   margin: 0;
   flex: 0 0 auto;
 }
+.hamburger-button {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #f68b1e;
+  cursor: pointer;
+  padding: 0.5rem;
+}
 .header-nav {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
   flex: 0 0 auto;
 }
+.header-nav--open {
+  display: flex;
+}
 .header-link {
-  color: #d1d5db;
-  text-decoration: none;
-  font-size: clamp(0.875rem, 3vw, 1.125rem);
+  font-family: 'Roboto', sans-serif;
+  font-size: clamp(0.875rem, 3vw, 1rem);
   font-weight: 500;
+  color: #333;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
   transition: color 0.3s ease;
 }
 .header-link:hover {
-  color: #f97316;
+  color: #f68b1e;
 }
 @media (min-width: 1024px) {
   .header-container {
@@ -51,12 +73,25 @@
 }
 @media (max-width: 768px) {
   .header-container {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
+  }
+  .hamburger-button {
+    display: block;
   }
   .header-nav {
+    display: none;
+    flex-direction: column;
     width: 100%;
-    justify-content: flex-start;
+    background: #ffffff;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .header-nav--open {
+    display: flex;
   }
 }
 @media (max-width: 480px) {
@@ -64,6 +99,6 @@
     padding: 0.5rem;
   }
   .header-title {
-    font-size: clamp(1.25rem, 4vw, 1.5rem);
+    font-size: clamp(1rem, 3vw, 1.25rem);
   }
 }

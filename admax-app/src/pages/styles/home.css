@@ -1,55 +1,16 @@
-*{
-   padding: 0px;
-   margin: 0px;
-}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
-.home {
-   min-height: 100vh;
-   display: flex;
-   flex-direction: column;
- }
- 
- .home > * {
-   flex-shrink: 0;
- }
- 
- /* Responsive spacing */
- @media (max-width: 768px) {
-   .home {
-     padding-top: 0;
-   }
- }
- 
- /* Smooth transitions between sections */
- .home section {
-   transition: var(--transition);
- }
- 
- /* Loading states */
- .home.loading {
-   opacity: 0.7;
-   pointer-events: none;
- }
- 
- /* Animation for page load */
- .home {
-   animation: fadeIn 0.8s ease-out;
- }
- 
- /* Ensure footer stays at bottom */
- .home {
-   position: relative;
- }
- 
- .home::before {
-   content: '';
-   position: absolute;
-   top: 0;
-   left: 0;
-   right: 0;
-   bottom: 0;
-   background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
-   opacity: 0.02;
-   pointer-events: none;
-   z-index: -1;
- }
+.home-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f1f1f1;
+  padding-top: 4rem; /* Offset for fixed header */
+}
+.error-message {
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  color: #ff4d4d;
+  padding: 2rem;
+}

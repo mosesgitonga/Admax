@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './styles/CategoryList.css';
 
-function CategoryList({ onCategorySelect, selectedCategory }) {
+function CategoryList({ onCategorySelect, selectedCategory, searchTerm }) {
   const categories = [
     'New Deals',
     'Refurbished Deals',
@@ -17,7 +17,7 @@ function CategoryList({ onCategorySelect, selectedCategory }) {
     'POS Systems',
     'Drives & Storage',
     'Utilities, Anti-virus, Security',
-    'Service & Repair'
+    'Service & Repair',
   ];
 
   const featuredItems = [
@@ -26,132 +26,162 @@ function CategoryList({ onCategorySelect, selectedCategory }) {
       name: 'Gaming Laptop Pro',
       description: 'Experience gaming like never before with top-tier GPUs!',
       image: 'https://via.placeholder.com/1200x400?text=Gaming+Laptop+Pro',
-      cta: 'Shop Now'
+      cta: 'Shop Now',
     },
     {
       id: 2,
       name: 'Wireless Mouse',
       description: 'Boost productivity with ergonomic precision.',
       image: 'https://via.placeholder.com/1200x400?text=Wireless+Mouse',
-      cta: 'Shop Now'
+      cta: 'Shop Now',
     },
     {
       id: 3,
       name: 'Antivirus Software',
       description: 'Secure your digital world with advanced protection.',
       image: 'https://via.placeholder.com/1200x400?text=Antivirus+Software',
-      cta: 'Shop Now'
+      cta: 'Shop Now',
     },
   ];
 
   const WHATSAPP_NUMBER = import.meta.env.VITE_WHATSAPP_NUMBER || '1234567890';
-
   const [currentItem, setCurrentItem] = useState(0);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showAllCategories, setShowAllCategories] = useState(false);
+  const [isBannerVisible, setIsBannerVisible] = useState(true);
+  const bannerScrollRef = useRef(null);
+  const productGridRef = useRef(null);
 
   useEffect(() => {
+    if (selectedCategory || searchTerm || !isBannerVisible) return;
     const interval = setInterval(() => {
-      if (!selectedCategory) {
-        setCurrentItem((prev) => (prev + 1) % featuredItems.length);
-      }
+      setCurrentItem((prev) => (prev + 1) % featuredItems.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, [featuredItems.length, selectedCategory]);
+  }, [featuredItems.length, selectedCategory, searchTerm, isBannerVisible]);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  useEffect(() => {
+    const bannerScroll = bannerScrollRef.current;
+    if (!bannerScroll) return;
+
+    const handleTouchMove = (e) => {
+      setIsBannerVisible(false);
+      if (productGridRef.current) {
+        productGridRef.current.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+
+    bannerScroll.addEventListener('touchmove', handleTouchMove);
+    return () => bannerScroll.removeEventListener('touchmove', handleTouchMove);
+  }, []);
 
   const toggleCategories = () => {
     setShowAllCategories(!showAllCategories);
+    if (showAllCategories) {
+      onCategorySelect(null);
+    }
   };
 
   const handleCategoryClick = (category) => {
-    onCategorySelect(category);
-    setIsMenuOpen(false);
+    onCategorySelect(category === 'New Deals' ? null : category);
+    setIsBannerVisible(false);
   };
 
-  const visibleCategories = showAllCategories ? categories : categories.slice(0, 5);
+  const handleScrollToProducts = () => {
+    if (productGridRef.current) {
+      productGridRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsBannerVisible(false);
+  };
 
   return (
-    <section 
-      className="category-section"
-      aria-labelledby="category-heading"
-    >
-      <div className="category-container">
-        <button
-          className="hamburger-button"
-          onClick={toggleMenu}
-          aria-expanded={isMenuOpen}
-          aria-label={isMenuOpen ? 'Close category menu' : 'Open category menu'}
-        >
-          <span className="hamburger-icon"></span>
-        </button>
-        <nav 
-          className={`category-sidenav ${isMenuOpen ? 'category-sidenav--open' : ''}`}
-          aria-label="Category navigation"
-        >
-          <ul 
-            className="category-list"
-            role="list"
-          >
-            {visibleCategories.map((category, index) => (
-              <li 
-                key={index} 
-                className="category-item"
+    <section className="category-section" aria-labelledby="category-heading">
+      {/* Category Navigation - Fixed at top */}
+      <nav className={`category-nav ${showAllCategories ? 'category-nav--expanded' : ''}`} aria-label="Category navigation">
+        <div className="category-container">
+          <div className="category-list">
+            {categories.slice(0, showAllCategories ? categories.length : 6).map((category) => (
+              <button
+                key={category}
+                className={`category-item ${selectedCategory === category ? 'category-item--active' : ''}`}
+                onClick={() => handleCategoryClick(category)}
+                aria-pressed={selectedCategory === category}
               >
-                <a 
-                  href={`#${category.toLowerCase().replace(/\s+/g, '-')}`} 
-                  className={`category-link ${selectedCategory === category ? 'category-link--active' : ''}`}
-                  aria-label={`Explore ${category} category`}
-                  onClick={() => handleCategoryClick(category)}
-                >
-                  {category}
-                </a>
-              </li>
+                {category}
+              </button>
             ))}
-            {categories.length > 5 && (
-              <li className="category-item">
-                <button
-                  className="category-link category-link--show-more"
-                  onClick={toggleCategories}
-                  aria-label={showAllCategories ? 'Show fewer categories' : 'Show all categories'}
-                >
-                  {showAllCategories ? 'Show Fewer' : 'Show All Categories'}
-                </button>
-              </li>
-            )}
-          </ul>
-        </nav>
-        {!selectedCategory && (
-          <div className="category-content fullwidth">
-            <div className="category-banner">
-              <div className="banner-item">
-                <img 
-                  src={featuredItems[currentItem].image} 
-                  alt={featuredItems[currentItem].name} 
-                  className="banner-image"
-                  loading="lazy"
-                />
+            <button
+              className="category-toggle"
+              onClick={toggleCategories}
+              aria-expanded={showAllCategories}
+              aria-label={showAllCategories ? 'Show fewer categories' : 'Show all categories'}
+            >
+              <i className={`fas ${showAllCategories ? 'fa-chevron-up' : 'fa-chevron-down'}`}></i>
+              {showAllCategories ? 'Show Less' : 'More'}
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      {/* Banner Section - Only shown when no category selected */}
+      {(!selectedCategory && !searchTerm && isBannerVisible) && (
+        <div className="banner-section">
+          <div className="banner-container" ref={bannerScrollRef}>
+            {featuredItems.map((item, index) => (
+              <div
+                key={item.id}
+                className={`banner-item ${index === currentItem ? 'banner-item--active' : ''}`}
+              >
+                <div className="banner-image-container">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="banner-image"
+                    loading="lazy"
+                  />
+                  <div className="banner-overlay"></div>
+                </div>
                 <div className="banner-content">
-                  <h3 className="banner-title">{featuredItems[currentItem].name}</h3>
-                  <p className="banner-description">{featuredItems[currentItem].description}</p>
+                  <h3 className="banner-title">{item.name}</h3>
+                  <p className="banner-description">{item.description}</p>
                   <a
-                    href={`https://wa.me/${WHATSAPP_NUMBER}?text=I'm%20interested%20in%20${encodeURIComponent(featuredItems[currentItem].name)}`}
+                    href={`https://wa.me/${WHATSAPP_NUMBER}?text=I'm%20interested%20in%20${encodeURIComponent(item.name)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="banner-cta"
-                    aria-label={`Shop ${featuredItems[currentItem].name} now via WhatsApp`}
+                    aria-label={`Shop ${item.name} now via WhatsApp`}
                   >
-                    {featuredItems[currentItem].cta}
+                    <i className="fas fa-shopping-cart"></i>
+                    {item.cta}
                   </a>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
-        )}
-      </div>
+          
+          <div className="banner-dots">
+            {featuredItems.map((_, index) => (
+              <button
+                key={index}
+                className={`banner-dot ${index === currentItem ? 'banner-dot--active' : ''}`}
+                onClick={() => setCurrentItem(index)}
+                aria-label={`Go to banner ${index + 1}`}
+              ></button>
+            ))}
+          </div>
+
+          <button 
+            className="scroll-to-products"
+            onClick={handleScrollToProducts}
+            aria-label="Scroll to products"
+          >
+            <i className="fas fa-chevron-down"></i>
+            <span>View Products</span>
+          </button>
+        </div>
+      )}
+
+      {/* Product Grid Reference Point */}
+      <div ref={productGridRef} className="product-grid-anchor" />
     </section>
   );
 }

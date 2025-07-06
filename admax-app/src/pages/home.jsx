@@ -11,9 +11,10 @@ function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const [fetchedProducts, setFetchedProducts] = useState([]);
   const [error, setError] = useState(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Simulate async fetch (toggleable for static data)
-  const USE_STATIC_DATA = false; // Set to true to bypass async fetch
+  // Simulate async fetch
+  const USE_STATIC_DATA = false;
 
   useEffect(() => {
     if (USE_STATIC_DATA) {
@@ -47,11 +48,14 @@ function Home() {
         : fetchedProducts;
   }, [fetchedProducts, selectedCategory, searchTerm]);
 
+  const handleMenuToggle = () => {
+    setIsMenuOpen(prev => !prev);
+  };
+
   if (error) {
     return (
       <div className="home-container">
-        <Header onSearch={setSearchTerm} />
-        <CategoryList onCategorySelect={setSelectedCategory} selectedCategory={selectedCategory} />
+        <Header onSearch={setSearchTerm} onMenuToggle={handleMenuToggle} isMenuOpen={isMenuOpen} />
         <div className="error-message">{error}</div>
       </div>
     );
@@ -59,8 +63,12 @@ function Home() {
 
   return (
     <div className="home-container">
-      <Header onSearch={setSearchTerm} />
-      <CategoryList onCategorySelect={setSelectedCategory} selectedCategory={selectedCategory} />
+      <Header onSearch={setSearchTerm} onMenuToggle={handleMenuToggle} isMenuOpen={isMenuOpen} />
+      <CategoryList
+        onCategorySelect={setSelectedCategory}
+        selectedCategory={selectedCategory}
+        searchTerm={searchTerm}
+      />
       <ProductGrid products={filteredProducts} isLoading={isLoading} />
     </div>
   );
