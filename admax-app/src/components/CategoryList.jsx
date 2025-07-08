@@ -25,21 +25,21 @@ function CategoryList({ onCategorySelect, selectedCategory, searchTerm }) {
       id: 1,
       name: 'Gaming Laptop Pro',
       description: 'Experience gaming like never before with top-tier GPUs!',
-      image: 'https://via.placeholder.com/1200x400?text=Gaming+Laptop+Pro',
+      image: 'laptop.png',
       cta: 'Shop Now',
     },
     {
       id: 2,
       name: 'Wireless Mouse',
       description: 'Boost productivity with ergonomic precision.',
-      image: 'https://via.placeholder.com/1200x400?text=Wireless+Mouse',
+      image: 'mouse.webp',
       cta: 'Shop Now',
     },
     {
       id: 3,
       name: 'Antivirus Software',
       description: 'Secure your digital world with advanced protection.',
-      image: 'https://via.placeholder.com/1200x400?text=Antivirus+Software',
+      image: 'keyboard.webp',
       cta: 'Shop Now',
     },
   ];
@@ -51,19 +51,30 @@ function CategoryList({ onCategorySelect, selectedCategory, searchTerm }) {
   const bannerScrollRef = useRef(null);
   const productGridRef = useRef(null);
 
+  // Update banner visibility based on searchTerm or selectedCategory
   useEffect(() => {
-    if (selectedCategory || searchTerm || !isBannerVisible) return;
+    if (searchTerm || selectedCategory) {
+      setIsBannerVisible(false);
+    } else {
+      setIsBannerVisible(true);
+    }
+  }, [searchTerm, selectedCategory]);
+
+  // Handle banner auto-scroll only when banner is visible
+  useEffect(() => {
+    if (!isBannerVisible) return;
     const interval = setInterval(() => {
       setCurrentItem((prev) => (prev + 1) % featuredItems.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, [featuredItems.length, selectedCategory, searchTerm, isBannerVisible]);
+  }, [featuredItems.length, isBannerVisible]);
 
+  // Handle touch move to scroll to products
   useEffect(() => {
     const bannerScroll = bannerScrollRef.current;
     if (!bannerScroll) return;
 
-    const handleTouchMove = (e) => {
+    const handleTouchMove = () => {
       setIsBannerVisible(false);
       if (productGridRef.current) {
         productGridRef.current.scrollIntoView({ behavior: 'smooth' });
@@ -84,6 +95,9 @@ function CategoryList({ onCategorySelect, selectedCategory, searchTerm }) {
   const handleCategoryClick = (category) => {
     onCategorySelect(category === 'New Deals' ? null : category);
     setIsBannerVisible(false);
+    if (productGridRef.current) {
+      productGridRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   const handleScrollToProducts = () => {
@@ -122,8 +136,8 @@ function CategoryList({ onCategorySelect, selectedCategory, searchTerm }) {
         </div>
       </nav>
 
-      {/* Banner Section - Only shown when no category selected */}
-      {(!selectedCategory && !searchTerm && isBannerVisible) && (
+      {/* Banner Section - Only shown when no category selected and no search term */}
+      {isBannerVisible && (
         <div className="banner-section">
           <div className="banner-container" ref={bannerScrollRef}>
             {featuredItems.map((item, index) => (
@@ -157,7 +171,7 @@ function CategoryList({ onCategorySelect, selectedCategory, searchTerm }) {
               </div>
             ))}
           </div>
-          
+
           <div className="banner-dots">
             {featuredItems.map((_, index) => (
               <button
@@ -169,7 +183,7 @@ function CategoryList({ onCategorySelect, selectedCategory, searchTerm }) {
             ))}
           </div>
 
-          <button 
+          <button
             className="scroll-to-products"
             onClick={handleScrollToProducts}
             aria-label="Scroll to products"

@@ -3,47 +3,60 @@
 .header {
   background: #ffffff;
   color: #333;
-  padding: 0.75rem 1rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
 }
+
 .header-container {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
   flex-wrap: wrap;
 }
+
 .header-title {
   font-family: 'Roboto', sans-serif;
-  font-size: clamp(1.25rem, 4vw, 1.5rem);
+  font-size: clamp(1.25rem, 4vw, 1.75rem);
   font-weight: 700;
   color: #f68b1e;
   margin: 0;
   flex: 0 0 auto;
 }
+
 .hamburger-button {
   display: none;
   background: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   color: #f68b1e;
   cursor: pointer;
   padding: 0.5rem;
 }
+
+.hamburger-button:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
 .header-nav {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   flex: 0 0 auto;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
+
 .header-nav--open {
-  display: flex;
+  transform: translateY(0);
+  opacity: 1;
 }
+
 .header-link {
   font-family: 'Roboto', sans-serif;
   font-size: clamp(0.875rem, 3vw, 1rem);
@@ -53,32 +66,33 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.5rem;
-  transition: color 0.3s ease;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease, background 0.3s ease;
 }
+
 .header-link:hover {
   color: #f68b1e;
+  background: #f8f9fa;
+  border-radius: 4px;
 }
+
+.header-link:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
 @media (min-width: 1024px) {
   .header-container {
     flex-wrap: nowrap;
     justify-content: space-between;
   }
-  .header-title {
-    flex: 0 0 auto;
-  }
-  .header-nav {
-    flex: 0 0 auto;
-  }
 }
+
 @media (max-width: 768px) {
-  .header-container {
-    flex-direction: row;
-    align-items: center;
-  }
   .hamburger-button {
     display: block;
   }
+
   .header-nav {
     display: none;
     flex-direction: column;
@@ -87,17 +101,24 @@
     position: absolute;
     top: 100%;
     left: 0;
-    padding: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-10px);
+    opacity: 0;
   }
+
   .header-nav--open {
     display: flex;
+    transform: translateY(0);
+    opacity: 1;
   }
 }
+
 @media (max-width: 480px) {
   .header {
-    padding: 0.5rem;
+    padding: 0.75rem;
   }
+
   .header-title {
     font-size: clamp(1rem, 3vw, 1.25rem);
   }

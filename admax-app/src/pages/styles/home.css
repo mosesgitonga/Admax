@@ -7,10 +7,39 @@
   background: #f1f1f1;
   padding-top: 4rem; /* Offset for fixed header */
 }
+
 .error-message {
   font-family: 'Roboto', sans-serif;
   text-align: center;
   font-size: clamp(1rem, 3vw, 1.25rem);
   color: #ff4d4d;
   padding: 2rem;
+}
+
+.filter-info {
+  max-width: 1200px;
+  margin: 1rem auto;
+  padding: 0 20px;
+}
+
+.filter-title {
+  font-family: 'Roboto', sans-serif;
+  font-size: clamp(1.25rem, 4vw, 1.5rem);
+  font-weight: 600;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .filter-info {
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .filter-info {
+    padding: 0 12px;
+  }
+  .filter-title {
+    font-size: clamp(1rem, 3vw, 1.25rem);
+  }
 }

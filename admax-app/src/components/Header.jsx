@@ -32,4 +32,4 @@ function Header({ onSearch, onMenuToggle, isMenuOpen }) {
   );
 }
 
-export default Header;
+export default React.memo(Header);
