@@ -1,101 +1,63 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import Header from '../components/Header';
-import CategoryList from '../components/CategoryList';
-import ProductGrid from '../components/ProductGrid';
-import products from '../data/products';
-import './styles/home.css';
+import React, { useState, useRef } from 'react';
+import Header from './components/Header';
+import ProductGrid from './components/ProductGrid';
+import products from './data/products';
+import './App.css';
+import Banner from './components/Banner';
 
-function useDebounce(value, delay) {
-  const [debouncedValue, setDebouncedValue] = useState(value);
-  useEffect(() => {
-    const handler = setTimeout(() => setDebouncedValue(value), delay);
-    return () => clearTimeout(handler);
-  }, [value, delay]);
-  return debouncedValue;
-}
-
-function Home() {
-  const [searchTerm, setSearchTerm] = useState('');
-  const debouncedSearchTerm = useDebounce(searchTerm, 300);
+function App() {
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [fetchedProducts, setFetchedProducts] = useState([]);
-  const [error, setError] = useState(null);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const productGridRef = useRef(null);
 
-  const USE_STATIC_DATA = false;
+  const filteredProducts = selectedCategory
+    ? products.filter(product => product.category === selectedCategory)
+    : searchQuery
+      ? products.filter(product => product.name.toLowerCase().includes(searchQuery.toLowerCase()))
+      : products;
 
-  useEffect(() => {
-    if (USE_STATIC_DATA) {
-      setFetchedProducts(products);
-      setIsLoading(false);
-      return;
+  const handleCategorySelect = (category) => {
+    setSelectedCategory(category);
+    setSearchQuery(''); // Reset search when selecting a category
+    if (productGridRef.current) {
+      productGridRef.current.scrollIntoView({ behavior: 'smooth' });
     }
-
-    const fetchProducts = async () => {
-      setIsLoading(true);
-      setError(null);
-      try {
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        setFetchedProducts(products);
-      } catch (error) {
-        console.error('Error fetching products:', error);
-        setError('Failed to load products. Please try again.');
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    fetchProducts();
-  }, []);
-
-  const filteredProducts = useMemo(() => {
-    if (!fetchedProducts.length) return [];
-    return selectedCategory
-      ? fetchedProducts.filter(product => product.category === selectedCategory)
-      : debouncedSearchTerm
-        ? fetchedProducts.filter(product => product.name.toLowerCase().includes(debouncedSearchTerm.toLowerCase()))
-        : fetchedProducts;
-  }, [fetchedProducts, selectedCategory, debouncedSearchTerm]);
-
-  const handleMenuToggle = () => {
-    setIsMenuOpen(prev => !prev);
   };
 
-  const handleRetry = () => {
-    setError(null);
-    setIsLoading(true);
-    fetchProducts();
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+    setSelectedCategory(null); // Reset category when searching
+    if (productGridRef.current) {
+      productGridRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
   };
-
-  if (error) {
-    return (
-      <div className="home-container" aria-live="polite">
-        <Header onSearch={setSearchTerm} onMenuToggle={handleMenuToggle} isMenuOpen={isMenuOpen} />
-        <div className="error-message">
-          {error}
-          <button
-            className="retry-button"
-            onClick={handleRetry}
-            aria-label="Retry loading products"
-          >
-            Retry
-          </button>
-        </div>
-      </div>
-    );
-  }
 
   return (
-    <div className="home-container" aria-live="polite">
-      <Header onSearch={setSearchTerm} onMenuToggle={handleMenuToggle} isMenuOpen={isMenuOpen} />
-      <CategoryList
-        onCategorySelect={setSelectedCategory}
+    <div className="app-container">
+      <Header
+        onCategorySelect={handleCategorySelect}
         selectedCategory={selectedCategory}
-        searchTerm={debouncedSearchTerm}
+        onSearch={handleSearch}
+        searchQuery={searchQuery}
       />
-      <ProductGrid products={filteredProducts} isLoading={isLoading} />
+      {!searchQuery && !selectedCategory && <Banner />}
+      {(searchQuery || selectedCategory) && (
+        <div className="filter-info">
+          {selectedCategory ? (
+            <h2 className="filter-title">Category: {selectedCategory}</h2>
+          ) : (
+            <h2 className="filter-title">Search: "{searchQuery}"</h2>
+          )}
+        </div>
+      )}
+      <div ref={productGridRef} className="product-grid-anchor" />
+      {filteredProducts.length > 0 ? (
+        <ProductGrid products={filteredProducts} />
+      ) : (
+        <p className="no-products">No products found.</p>
+      )}
     </div>
   );
 }
 
-export default Home;
+export default App;
