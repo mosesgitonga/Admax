@@ -12,47 +12,74 @@ function Header({ onCategorySelect, selectedCategory, onSearch }) {
   return (
     <header className="header">
       <div className="header-container">
-        {/* Top Row: Logo, Nav, Hamburger */}
-        <div className="top-bar">
-          <h1 className="logo">Admax Tech Solutions</h1>
+        {/* Top Row - Logo, Nav, Search */}
+        <div className="header-top-row">
+          <div className="header-left">
+            <h1 className="logo">Admax Tech Solutions</h1>
+            
+            {/* Desktop Navigation */}
+            <nav className="nav-menu desktop-nav">
+              <ul className="nav-list">
+                <li>
+                  <a href="/" className="nav-link">
+                    Home
+                  </a>
+                </li>
+                <li>
+                  <a href="/about" className="nav-link">
+                    About
+                  </a>
+                </li>
+                <li>
+                  <a href="/contact" className="nav-link">
+                    Contact
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
 
-          {/* Desktop nav */}
-          <nav className="nav-menu desktop-nav">
-            <ul className="nav-list">
-              <li><a href="/" className="nav-link">Home</a></li>
-              <li><a href="/about" className="nav-link">About</a></li>
-              <li><a href="/contact" className="nav-link">Contact</a></li>
-            </ul>
-          </nav>
+          <div className="search-bar-wrapper">
+            <SearchBar onSearch={onSearch} />
+          </div>
 
-          {/* Hamburger for small screens */}
+          {/* Mobile Hamburger */}
           <button
             className="hamburger-menu"
             onClick={toggleMenu}
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMenuOpen}
           >
-            {isMenuOpen ? <FiX /> : <FiMenu />}
+            {isMenuOpen ? <FiX size={20} /> : <FiMenu size={20} />}
           </button>
         </div>
 
-        {/* Mobile nav below toggle */}
+        {/* Mobile Navigation */}
         {isMenuOpen && (
-          <nav className="nav-menu mobile-nav">
-            <ul className="nav-list vertical">
-              <li><a href="/" className="nav-link">Home</a></li>
-              <li><a href="/about" className="nav-link">About</a></li>
-              <li><a href="/contact" className="nav-link">Contact</a></li>
-            </ul>
-          </nav>
+          <div className="mobile-nav-container">
+            <nav className="nav-menu mobile-nav">
+              <ul className="nav-list vertical">
+                <li>
+                  <a href="/" className="nav-link" onClick={toggleMenu}>
+                    Home
+                  </a>
+                </li>
+                <li>
+                  <a href="/about" className="nav-link" onClick={toggleMenu}>
+                    About
+                  </a>
+                </li>
+                <li>
+                  <a href="/contact" className="nav-link" onClick={toggleMenu}>
+                    Contact
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
         )}
 
-        {/* Search Bar below nav */}
-        <div className="search-bar-wrapper">
-          <SearchBar onSearch={onSearch} />
-        </div>
-
-        {/* Category list */}
+        {/* Category List */}
         <div className="category-wrapper">
           <CategoryList
             onCategorySelect={onCategorySelect}
