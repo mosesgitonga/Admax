@@ -105,7 +105,7 @@
 .product-modal {
   --modal-padding: 1rem;
   --modal-radius: 16px;
-  
+
   position: fixed;
   top: 0;
   left: 0;
@@ -312,6 +312,16 @@
   .modal-image-container {
     padding: 1rem;
     max-height: 35vh;
+  }
+
+  .modal-product-image {
+    padding: 10px 30px;
+    background: #f1f0f0;
+    max-height: 200px;
+    border-radius: 20px;
+    object-fit: contain;
+    width: 100%;
+    border-radius: 8px;
   }
 
   .modal-details {
