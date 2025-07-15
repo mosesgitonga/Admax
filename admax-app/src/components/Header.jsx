@@ -1,39 +1,63 @@
-import React, { useState } from 'react';
-import CategoryList from './CategoryList';
-import SearchBar from './SearchBar';
-import './styles/Header.css';
+import React, { useState } from "react";
+import { FiMenu, FiX } from "react-icons/fi";
+import CategoryList from "./CategoryList";
+import SearchBar from "./SearchBar";
+import "./styles/Header.css";
 
-function Header({ onCategorySelect, selectedCategory, onSearch, searchQuery }) {
-  const [isCategoryMenuOpen, setIsCategoryMenuOpen] = useState(false);
+function Header({ onCategorySelect, selectedCategory, onSearch }) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleCategoryMenu = () => {
-    setIsCategoryMenuOpen((prev) => !prev);
-  };
+  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
   return (
     <header className="header">
       <div className="header-container">
-        <div className="header-top">
+        {/* Top Row: Logo, Nav, Hamburger */}
+        <div className="top-bar">
           <h1 className="logo">Admax Tech Solutions</h1>
-          <SearchBar onSearch={onSearch} searchQuery={searchQuery} />
-          <nav className="nav-menu" aria-label="Main navigation">
-            <button
-              className="hamburger-menu"
-              onClick={toggleCategoryMenu}
-              aria-label={isCategoryMenuOpen ? 'Close category menu' : 'Open category menu'}
-              aria-expanded={isCategoryMenuOpen}
-            >
-              <i className={`fas ${isCategoryMenuOpen ? 'fa-times' : 'fa-bars'}`}></i>
-            </button>
+
+          {/* Desktop nav */}
+          <nav className="nav-menu desktop-nav">
             <ul className="nav-list">
               <li><a href="/" className="nav-link">Home</a></li>
               <li><a href="/about" className="nav-link">About</a></li>
               <li><a href="/contact" className="nav-link">Contact</a></li>
             </ul>
           </nav>
+
+          {/* Hamburger for small screens */}
+          <button
+            className="hamburger-menu"
+            onClick={toggleMenu}
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isMenuOpen}
+          >
+            {isMenuOpen ? <FiX /> : <FiMenu />}
+          </button>
         </div>
-        <div className={`category-wrapper ${isCategoryMenuOpen ? 'category-wrapper--open' : ''}`}>
-          <CategoryList onCategorySelect={onCategorySelect} selectedCategory={selectedCategory} />
+
+        {/* Mobile nav below toggle */}
+        {isMenuOpen && (
+          <nav className="nav-menu mobile-nav">
+            <ul className="nav-list vertical">
+              <li><a href="/" className="nav-link">Home</a></li>
+              <li><a href="/about" className="nav-link">About</a></li>
+              <li><a href="/contact" className="nav-link">Contact</a></li>
+            </ul>
+          </nav>
+        )}
+
+        {/* Search Bar below nav */}
+        <div className="search-bar-wrapper">
+          <SearchBar onSearch={onSearch} />
+        </div>
+
+        {/* Category list */}
+        <div className="category-wrapper">
+          <CategoryList
+            onCategorySelect={onCategorySelect}
+            selectedCategory={selectedCategory}
+          />
         </div>
       </div>
     </header>

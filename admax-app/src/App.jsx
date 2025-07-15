@@ -1,6 +1,5 @@
-import React, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import Header from './components/Header';
-import SearchBar from './components/SearchBar';
 import ProductGrid from './components/ProductGrid';
 import products from './data/products';
 import './App.css';
@@ -41,6 +40,7 @@ function App() {
         onSearch={handleSearch}
         searchQuery={searchQuery}
       />
+
       {!searchQuery && !selectedCategory && <Banner />}
       {(searchQuery || selectedCategory) && (
         <div className="filter-info">

@@ -1,11 +1,13 @@
 import React from 'react';
 import './styles/SearchBar.css';
+import { FiSearch } from 'react-icons/fi';
 
-function SearchBar({ onSearch }) {
+const SearchBar = ({ onSearch }) => {
   return (
     <div className="search-container">
-      <div className="search-wrapper">
-        <div className="search-form">
+      <div className="search-form">
+        <div className="input-wrapper">
+          <FiSearch className="search-icon" />
           <input
             type="text"
             placeholder="Search for cutting-edge tech..."
@@ -13,16 +15,16 @@ function SearchBar({ onSearch }) {
             className="search-input"
             aria-label="Search products"
           />
-          <button 
-            className="search-button"
-            aria-label="Search"
-          >
-            Search
-          </button>
         </div>
+        <button 
+          className="search-button"
+          aria-label="Search"
+        >
+          Search
+        </button>
       </div>
     </div>
   );
-}
+};
 
 export default React.memo(SearchBar);

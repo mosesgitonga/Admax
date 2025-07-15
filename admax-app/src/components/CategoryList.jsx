@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
 import './styles/CategoryList.css';
 
 function CategoryList({ onCategorySelect, selectedCategory }) {
@@ -20,30 +21,30 @@ function CategoryList({ onCategorySelect, selectedCategory }) {
     'Service & Repair',
   ];
 
-  const [showAllCategories, setShowAllCategories] = useState(false);
+  const [showAll, setShowAll] = useState(false);
 
   const toggleCategories = () => {
-    setShowAllCategories(!showAllCategories);
-    if (showAllCategories) {
-      onCategorySelect(null);
-    }
+    setShowAll((prev) => !prev);
   };
 
   const handleCategoryClick = (category) => {
     onCategorySelect(category === 'New Deals' ? null : category);
   };
 
+  const visibleCategories = showAll ? categories : categories.slice(0, categories.length);
+
   return (
-    <section className="category-section" aria-labelledby="category-heading">
-      <nav className={`category-nav ${showAllCategories ? 'category-nav--expanded' : ''}`} aria-label="Category navigation">
+    <section className="category-section">
+      <nav className="category-nav">
         <div className="category-container">
           <div className="category-list">
-            {categories.slice(0, showAllCategories ? categories.length : 6).map((category) => (
+            {visibleCategories.map((category) => (
               <button
                 key={category}
-                className={`category-item ${selectedCategory === category ? 'category-item--active' : ''}`}
+                className={`category-item ${
+                  selectedCategory === category ? 'category-item--active' : ''
+                }`}
                 onClick={() => handleCategoryClick(category)}
-                aria-pressed={selectedCategory === category}
               >
                 {category}
               </button>
@@ -51,11 +52,10 @@ function CategoryList({ onCategorySelect, selectedCategory }) {
             <button
               className="category-toggle"
               onClick={toggleCategories}
-              aria-expanded={showAllCategories}
-              aria-label={showAllCategories ? 'Show fewer categories' : 'Show all categories'}
+              aria-expanded={showAll}
             >
-              <i className={`fas ${showAllCategories ? 'fa-chevron-up' : 'fa-chevron-down'}`}></i>
-              {showAllCategories ? 'Show Less' : 'More'}
+              {showAll ? <FiChevronUp /> : <FiChevronDown />}
+              {showAll ? 'Show Less' : 'More'}
             </button>
           </div>
         </div>

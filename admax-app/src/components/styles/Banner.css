@@ -1,264 +1,218 @@
-/* Banner Section - Large size */
 .banner-section {
-    position: relative;
-    height: 80vh;
-    min-height: 500px;
-    overflow: hidden;
-    background: #000;
+  position: relative;
+  width: 100%;
+  height: 85vh;
+  min-height: 480px;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.banner-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Slide styling */
+.banner-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.banner-item--active {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* Image styles */
+.banner-image-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.banner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Overlay */
+.banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.75));
+  z-index: 1;
+}
+
+/* Content */
+.banner-content {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  padding: 1rem 2rem;
+  max-width: 800px;
+  width: 90%;
+}
+
+.banner-title {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.banner-description {
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  margin-bottom: 1.5rem;
+  opacity: 0.95;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  line-height: 1.4;
+}
+
+.banner-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #28a745, #20c997);
+  color: white;
+  text-decoration: none;
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 32px;
+  box-shadow: 0 5px 12px rgba(40, 167, 69, 0.4);
+  transition: all 0.3s ease;
+}
+
+.banner-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(40, 167, 69, 0.6);
+}
+
+/* Dots */
+.banner-dots {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 3;
+}
+
+.banner-dot {
+  width: 12px;
+  height: 12px;
+  border: 2px solid white;
+  border-radius: 50%;
+  background: transparent;
+  opacity: 0.6;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.banner-dot--active {
+  background: white;
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* Scroll button */
+.scroll-to-products {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  color: white;
+  font-size: 0.9rem;
+  cursor: pointer;
+  z-index: 3;
+  transition: all 0.3s ease;
+}
+
+.scroll-to-products:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.scroll-to-products i {
+  font-size: 1.2rem;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
   }
-  
-  .banner-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
+  40% {
+    transform: translateY(-8px);
   }
-  
-  .banner-item {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 0.8s ease-in-out;
+  60% {
+    transform: translateY(-4px);
   }
-  
-  .banner-item--active {
-    opacity: 1;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .banner-section {
+    height: 60vh;
   }
-  
-  .banner-image-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .banner-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-  }
-  
-  .banner-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-      135deg,
-      rgba(0, 0, 0, 0.4) 0%,
-      rgba(0, 0, 0, 0.6) 100%
-    );
-  }
-  
-  .banner-content {
-    position: absolute;
-    bottom: 80px;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    color: #ffffff;
-    z-index: 2;
-    max-width: 800px;
-    padding: 0 20px;
-  }
-  
+
   .banner-title {
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
-    font-weight: 700;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    line-height: 1.2;
+    font-size: 2rem;
   }
-  
+
   .banner-description {
-    font-size: clamp(1.2rem, 3vw, 1.5rem);
-    margin-bottom: 30px;
-    opacity: 0.9;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    line-height: 1.4;
+    font-size: 1rem;
   }
-  
+
   .banner-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 14px 28px;
-    background: linear-gradient(135deg, #28a745, #20c997);
-    color: #ffffff;
-    text-decoration: none;
-    border-radius: 30px;
-    font-weight: 600;
-    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
+    font-size: 1rem;
+    padding: 10px 20px;
   }
-  
-  .banner-cta:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 25px rgba(40, 167, 69, 0.6);
-    color: #ffffff;
-    text-decoration: none;
-  }
-  
-  .banner-cta i {
-    font-size: 1.2rem;
-  }
-  
-  /* Banner Dots */
-  .banner-dots {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 12px;
-    z-index: 3;
-  }
-  
-  .banner-dot {
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    border: 2px solid #ffffff;
-    background: transparent;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    opacity: 0.6;
-  }
-  
-  .banner-dot:hover {
-    opacity: 0.8;
-    transform: scale(1.1);
-  }
-  
-  .banner-dot--active {
-    background: #ffffff;
-    opacity: 1;
-    transform: scale(1.2);
-  }
-  
-  /* Scroll to Products Button */
+
   .scroll-to-products {
-    position: absolute;
-    bottom: 30px;
-    right: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    padding: 14px;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 12px;
-    color: #ffffff;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    z-index: 3;
+    bottom: 15px;
+    right: 15px;
+    font-size: 0.8rem;
   }
-  
-  .scroll-to-products:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: translateY(-2px);
+}
+
+@media (max-width: 480px) {
+  .banner-section {
+    height: 50vh;
   }
-  
-  .scroll-to-products i {
-    font-size: 1.4rem;
-    animation: bounce 2s infinite;
+
+  .banner-title {
+    font-size: 1.6rem;
   }
-  
-  .scroll-to-products span {
+
+  .banner-description {
     font-size: 0.9rem;
-    font-weight: 500;
   }
-  
-  @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-      transform: translateY(0);
-    }
-    40% {
-      transform: translateY(-8px);
-    }
-    60% {
-      transform: translateY(-4px);
-    }
+
+  .banner-cta {
+    font-size: 0.95rem;
+    padding: 8px 16px;
   }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .banner-section {
-      height: 60vh;
-      min-height: 400px;
-    }
-    
-    .banner-content {
-      bottom: 60px;
-      padding: 0 16px;
-    }
-    
-    .banner-title {
-      font-size: clamp(2rem, 4vw, 2.5rem);
-    }
-    
-    .banner-description {
-      font-size: clamp(1rem, 2.5vw, 1.2rem);
-    }
-    
-    .banner-cta {
-      padding: 10px 20px;
-      font-size: clamp(1rem, 2vw, 1.1rem);
-    }
-    
-    .scroll-to-products {
-      bottom: 20px;
-      right: 16px;
-      padding: 10px;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .banner-section {
-      height: 50vh;
-      min-height: 300px;
-    }
-    
-    .banner-title {
-      font-size: clamp(1.5rem, 3.5vw, 2rem);
-    }
-    
-    .banner-description {
-      font-size: clamp(0.9rem, 2vw, 1rem);
-    }
-    
-    .banner-cta {
-      padding: 8px 16px;
-      font-size: clamp(0.9rem, 1.8vw, 1rem);
-    }
-  }
-  
-  /* Loading state for images */
-  .banner-image {
-    transition: opacity 0.3s ease;
-  }
-  
-  .banner-image[src=""] {
-    opacity: 0;
-  }
-  
-  /* Focus styles for accessibility */
-  .banner-cta:focus,
-  .banner-dot:focus,
-  .scroll-to-products:focus {
-    outline: 2px solid #007bff;
-    outline-offset: 2px;
-  }
-  
-  /* High contrast mode support */
-  @media (prefers-contrast: high) {
-    .banner-overlay {
-      background: rgba(0, 0, 0, 0.8);
-    }
-  }
+}
