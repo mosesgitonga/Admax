@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./styles/ProductCard.css";
+import { FiActivity } from "react-icons/fi";
 
 const WHATSAPP_NUMBER = import.meta.env.VITE_WHATSAPP_NUMBER || "+254....890";
 
@@ -75,7 +76,7 @@ function ProductCard({ product }) {
             onClick={openModal}
             aria-label={`View details for ${product.name}`}
           >
-            View Details
+            View  details
           </button>
         </div>
       </article>
