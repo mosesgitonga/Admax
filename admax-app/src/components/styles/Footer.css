@@ -127,6 +127,12 @@
 
 .social-icons {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 999;
+  right: 10px;
+  bottom: 20px;
   gap: 1.25rem;
   margin-top: 1rem;
   background: rgb(16, 119, 16);
@@ -135,12 +141,14 @@
 
 .social-icons a {
   display: flex;
+  text-decoration: none;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   color: white;
+  font-size: 40px;
   transition: all 0.3s ease;
 }
 
