@@ -21,17 +21,17 @@ function Header({ onCategorySelect, selectedCategory, onSearch }) {
             <nav className="nav-menu desktop-nav">
               <ul className="nav-list">
                 <li>
-                  <a href="/" className="nav-link">
+                  <a href="#" className="nav-link">
                     Home
                   </a>
                 </li>
                 <li>
-                  <a href="/about" className="nav-link">
+                  <a href="#about" className="nav-link">
                     About
                   </a>
                 </li>
                 <li>
-                  <a href="/contact" className="nav-link">
+                  <a href="#contact" className="nav-link">
                     Contact
                   </a>
                 </li>
@@ -60,17 +60,17 @@ function Header({ onCategorySelect, selectedCategory, onSearch }) {
             <nav className="nav-menu mobile-nav">
               <ul className="nav-list vertical">
                 <li>
-                  <a href="/" className="nav-link" onClick={toggleMenu}>
+                  <a href="#" className="nav-link" onClick={toggleMenu}>
                     Home
                   </a>
                 </li>
                 <li>
-                  <a href="/about" className="nav-link" onClick={toggleMenu}>
+                  <a href="#about" className="nav-link" onClick={toggleMenu}>
                     About
                   </a>
                 </li>
                 <li>
-                  <a href="/contact" className="nav-link" onClick={toggleMenu}>
+                  <a href="#contact" className="nav-link" onClick={toggleMenu}>
                     Contact
                   </a>
                 </li>

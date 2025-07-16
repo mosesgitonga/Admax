@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./styles/ProductCard.css";
 import { FiActivity } from "react-icons/fi";
 
-const WHATSAPP_NUMBER = import.meta.env.VITE_WHATSAPP_NUMBER || "+254....890";
+const WHATSAPP_NUMBER = import.meta.env.VITE_WHATSAPP_NUMBER || "254711279189";
 
 function ProductCard({ product }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -27,10 +27,13 @@ function ProductCard({ product }) {
   };
 
   const handleWhatsAppCheckout = () => {
-    const message = ` 👋 Hello! I'm interested in the "${product.name}"  Description: ${product.description}.Could you please share more details and availability? Thanks! 🙏`;
-    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-      message
-    )}`;
+    const message = `Hello! I'm interested in the "${product.name}".Description: ${product.description}.Could you please share more details and availability? Thanks!`;
+
+    const encodedMessage = encodeURIComponent(message);
+    console.log(WHATSAPP_NUMBER)
+    console.log(encodedMessage)
+
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
     window.open(url, "_blank");
     closeModal();
   };
@@ -76,7 +79,7 @@ function ProductCard({ product }) {
             onClick={openModal}
             aria-label={`View details for ${product.name}`}
           >
-            View  details
+            View details
           </button>
         </div>
       </article>

@@ -4,6 +4,7 @@ import ProductGrid from './components/ProductGrid';
 import products from './data/products';
 import './App.css';
 import Banner from './components/Banner';
+import Footer from './components/Footer';
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -57,6 +58,7 @@ function App() {
       ) : (
         <p className="no-products">No products found.</p>
       )}
+      <Footer />
     </div>
   );
 }

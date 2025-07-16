@@ -98,6 +98,10 @@
   display: none;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .mobile-nav {
   background-color: var(--white);
   padding: 0.5rem 0;
