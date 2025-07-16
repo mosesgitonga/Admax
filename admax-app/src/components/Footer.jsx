@@ -41,7 +41,7 @@ const Footer = () => {
         <div className="footer-section services-section">
           <h3>Our Services</h3>
           <ul className="services-list">
-            <li>Dealers in PC,Laptops,Macboooks,Mobile,Tablets,iphones</li>
+            <li>Dealers in PC, <br />Laptops,Macboooks,<br />Mobile,Tablets,iphones</li>
             <li>Electronics Repair</li>
           </ul>
         </div>
