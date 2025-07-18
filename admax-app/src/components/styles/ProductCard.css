@@ -136,7 +136,7 @@
   max-width: min(900px, 90vw);
   width: 100%;
   max-height: min(90vh, 800px);
-  overflow: hidden;
+  overflow: auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   position: relative;

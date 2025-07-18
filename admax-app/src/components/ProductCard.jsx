@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "./styles/ProductCard.css";
-import { FiActivity } from "react-icons/fi";
 
 const WHATSAPP_NUMBER = import.meta.env.VITE_WHATSAPP_NUMBER || "254711279189";
 
@@ -12,41 +11,37 @@ function ProductCard({ product }) {
     e.target.classList.add("image-error");
   };
 
-  const openModal = () => {
-    setIsModalOpen(true);
-    document.body.style.overflow = "hidden";
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-    document.body.style.overflow = "auto";
-  };
-
-  const handleExpand = () => {
-    setIsExpanded(true);
-  };
-
-  const handleWhatsAppCheckout = () => {
-    const message = `Hello! I'm interested in the "${product.name}".Description: ${product.description}.Could you please share more details and availability? Thanks!`;
-
-    const encodedMessage = encodeURIComponent(message);
-    console.log(WHATSAPP_NUMBER)
-    console.log(encodedMessage)
-
-    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
-    window.open(url, "_blank");
-    closeModal();
+  const toggleModal = (open) => {
+    setIsModalOpen(open);
+    document.body.style.overflow = open ? "hidden" : "auto";
   };
 
   const handleModalClick = (e) => {
     if (e.target.classList.contains("product-modal")) {
-      closeModal();
+      toggleModal(false);
     }
+  };
+
+  const handleWhatsAppCheckout = () => {
+    const message = `Hello! I'm interested in the "${product.name}".\n\nDescription:\n${product.description}\n\nCould you please share more details and availability? Thanks!`;
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank");
+    toggleModal(false);
+  };
+
+  const renderDescriptionList = (description) => {
+    return (
+      <ul className="product-description-list">
+        {description.split("\n").map((line, i) => (
+          <li key={i}>{line}</li>
+        ))}
+      </ul>
+    );
   };
 
   return (
     <>
-      {/* product card */}
+      {/* Product Card */}
       <article className="product-card">
         <div className="image-container">
           <img
@@ -76,7 +71,7 @@ function ProductCard({ product }) {
 
           <button
             className="view-details-button"
-            onClick={openModal}
+            onClick={() => toggleModal(true)}
             aria-label={`View details for ${product.name}`}
           >
             View details
@@ -84,12 +79,13 @@ function ProductCard({ product }) {
         </div>
       </article>
 
+      {/* Product Modal */}
       {isModalOpen && (
         <div className="product-modal" onClick={handleModalClick}>
           <div className="modal-content">
             <button
               className="close-modal"
-              onClick={closeModal}
+              onClick={() => toggleModal(false)}
               aria-label="Close modal"
             >
               &times;
@@ -109,15 +105,6 @@ function ProductCard({ product }) {
               <p className="modal-price">
                 Ksh {product.price.toLocaleString()}
               </p>
-              {product.category && (
-                <p className="modal-category">Category: {product.category}</p>
-              )}
-
-              <div className="modal-description">
-                <h3 className="description-title">Product Details</h3>
-                <p className="description-text">{product.description}</p>
-              </div>
-
               <div className="modal-actions">
                 <button
                   className="whatsapp-button"
@@ -150,11 +137,26 @@ function ProductCard({ product }) {
 
                 <button
                   className="continue-shopping-button"
-                  onClick={closeModal}
+                  onClick={() => toggleModal(false)}
                 >
                   Continue Shopping
                 </button>
               </div>
+
+              {product.category && (
+                <p className="modal-category">
+                  Category: {Array.isArray(product.category)
+                    ? product.category.join(", ")
+                    : product.category}
+                </p>
+              )}
+
+              <div className="modal-description">
+                <h3 className="description-title">Product Details</h3>
+                {renderDescriptionList(product.description)}
+              </div>
+
+            
             </div>
           </div>
         </div>

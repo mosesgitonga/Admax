@@ -4,7 +4,7 @@ import CategoryList from "./CategoryList";
 import SearchBar from "./SearchBar";
 import "./styles/Header.css";
 
-function Header({ onCategorySelect, selectedCategory, onSearch }) {
+function Header({ onCategorySelect, selectedCategories, onSearch }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
@@ -12,29 +12,15 @@ function Header({ onCategorySelect, selectedCategory, onSearch }) {
   return (
     <header className="header">
       <div className="header-container">
-        {/* Top Row - Logo, Nav, Search */}
         <div className="header-top-row">
           <div className="header-left">
             <h1 className="logo">Admax Tech Solutions</h1>
-            
-            {/* Desktop Navigation */}
+
             <nav className="nav-menu desktop-nav">
               <ul className="nav-list">
-                <li>
-                  <a href="#" className="nav-link">
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a href="#about" className="nav-link">
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a href="#contact" className="nav-link">
-                    Contact
-                  </a>
-                </li>
+                <li><a href="#" className="nav-link">Home</a></li>
+                <li><a href="#about" className="nav-link">About</a></li>
+                <li><a href="#contact" className="nav-link">Contact</a></li>
               </ul>
             </nav>
           </div>
@@ -43,7 +29,6 @@ function Header({ onCategorySelect, selectedCategory, onSearch }) {
             <SearchBar onSearch={onSearch} />
           </div>
 
-          {/* Mobile Hamburger */}
           <button
             className="hamburger-menu"
             onClick={toggleMenu}
@@ -54,36 +39,22 @@ function Header({ onCategorySelect, selectedCategory, onSearch }) {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="mobile-nav-container">
             <nav className="nav-menu mobile-nav">
               <ul className="nav-list vertical">
-                <li>
-                  <a href="#" className="nav-link" onClick={toggleMenu}>
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a href="#about" className="nav-link" onClick={toggleMenu}>
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a href="#contact" className="nav-link" onClick={toggleMenu}>
-                    Contact
-                  </a>
-                </li>
+                <li><a href="#" className="nav-link" onClick={toggleMenu}>Home</a></li>
+                <li><a href="#about" className="nav-link" onClick={toggleMenu}>About</a></li>
+                <li><a href="#contact" className="nav-link" onClick={toggleMenu}>Contact</a></li>
               </ul>
             </nav>
           </div>
         )}
 
-        {/* Category List */}
         <div className="category-wrapper">
           <CategoryList
             onCategorySelect={onCategorySelect}
-            selectedCategory={selectedCategory}
+            selectedCategories={selectedCategories}
           />
         </div>
       </div>

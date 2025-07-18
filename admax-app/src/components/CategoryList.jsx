@@ -2,33 +2,24 @@ import React, { useState } from 'react';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
 import './styles/CategoryList.css';
 
-function CategoryList({ onCategorySelect, selectedCategory }) {
+function CategoryList({ onCategorySelect, selectedCategories = [] }) {
   const categories = [
-    'New Deals',
-    'Refurbished Deals',
-    'Laptops',
-    'Desktops',
-    'Accessories',
-    'Printers & Scanners',
-    'Networking',
-    'Apple Products',
-    'Gaming',
-    'Power & Protection',
-    'Workstations & Servers',
-    'POS Systems',
-    'Drives & Storage',
-    'Utilities, Anti-virus, Security',
-    'Service & Repair',
+    'New Deals', 'Refurbished Deals', 'Laptops', 'Desktops', 'Accessories',
+    'Printers & Scanners', 'Networking', 'Apple Products', 'Gaming',
+    'Power & Protection', 'Workstations & Servers', 'POS Systems',
+    'Drives & Storage', 'Utilities, Anti-virus, Security', 'Service & Repair'
   ];
 
   const [showAll, setShowAll] = useState(false);
 
-  const toggleCategories = () => {
-    setShowAll((prev) => !prev);
-  };
+  const toggleCategories = () => setShowAll(prev => !prev);
 
   const handleCategoryClick = (category) => {
-    onCategorySelect(category === 'New Deals' ? null : category);
+    const updated = selectedCategories.includes(category)
+      ? selectedCategories.filter(cat => cat !== category)
+      : [...selectedCategories, category];
+
+    onCategorySelect(updated);
   };
 
   const visibleCategories = showAll ? categories : categories.slice(0, categories.length);
@@ -41,9 +32,7 @@ function CategoryList({ onCategorySelect, selectedCategory }) {
             {visibleCategories.map((category) => (
               <button
                 key={category}
-                className={`category-item ${
-                  selectedCategory === category ? 'category-item--active' : ''
-                }`}
+                className={`category-item ${selectedCategories.includes(category) ? 'category-item--active' : ''}`}
                 onClick={() => handleCategoryClick(category)}
               >
                 {category}
@@ -54,8 +43,7 @@ function CategoryList({ onCategorySelect, selectedCategory }) {
               onClick={toggleCategories}
               aria-expanded={showAll}
             >
-              {showAll ? <FiChevronUp /> : <FiChevronDown />}
-              {showAll ? 'Show Less' : 'More'}
+              {showAll ? <FiChevronUp /> : <FiChevronDown />} {showAll ? 'Show Less' : 'More'}
             </button>
           </div>
         </div>
