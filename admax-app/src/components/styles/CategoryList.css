@@ -2,7 +2,7 @@
 
 .category-section {
   width: 100%;
-  background: #f9fafb;
+  background: #e9ecee;
   font-family: 'Inter', sans-serif;
 }
 
@@ -11,7 +11,7 @@
   background: #ffffff;
   border-top: 1px solid #e2e8f0;
   border-bottom: 1px solid #e2e8f0;
-  padding: 0.5rem 0;
+  /* padding: 0.5rem 0; */
   overflow-x: auto;
   scrollbar-width: none;
 }
@@ -23,7 +23,7 @@
 .category-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 16px;
+  /* padding: 0 16px; */
 }
 
 .category-list {
@@ -31,7 +31,7 @@
   align-items: center;
   gap: 0.5rem;
   overflow-x: auto;
-  padding: 0.5rem 0;
+  /* padding: 0.5rem 0; */
   scrollbar-width: none;
   position: relative;
 }

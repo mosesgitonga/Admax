@@ -15,11 +15,11 @@ function App() {
     const matchesSearch = searchQuery
       ? product.name.toLowerCase().includes(searchQuery.toLowerCase())
       : true;
-  
+
     const matchesCategory = selectedCategories.length > 0
-      ? selectedCategories.some(cat => product.category?.includes(cat))
+      ? selectedCategories.some(cat => product.categories?.includes(cat))
       : true;
-  
+
     return matchesSearch && matchesCategory;
   });
 
