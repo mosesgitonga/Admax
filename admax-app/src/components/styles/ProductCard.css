@@ -185,7 +185,8 @@
   align-items: center;
   justify-content: center;
   background: var(--color-surface);
-  max-height: 40vh;
+  max-height: 80vh;
+  max-width: 100%;
   overflow: hidden;
 }
 
