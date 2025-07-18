@@ -3,7 +3,7 @@ const products = [
     id: 5075,
     name: "Certified Refurbished Hp EliteBook 840 G6 Core i5 8th Generation 16GB Ram 256GB SSD 14 Inch Laptop",
     price: 44000,
-    image: "public/products/Ceritified refurbished hp elitebook.webp",
+    image: "products/Ceritified refurbished hp elitebook.webp",
     category: ["New Deals", "Refurbished Deals", "Laptops"],
     description: `Operating system: Windows 10/11 Pro 64-bit Edition\nMemory: 16GB DDR4-2400 RAM\nStorage: 256GB PCIe NVMe Value M.2 TLC SSD\nOptical drive: No Optical Drive\nGraphics Processor: Intel® UHD Graphics 620\nProcessor: Intel® Core™ i5-8365U vPro processor (1.6GHz base frequency, up to 4.1GHz with Intel® Turbo Boost Technology, 6MB L3 cache, 4 Cores)\nProcessor Family: 8th Generation Intel® Core™ i5 processor\nDisplay: 14 inch (35.56 cm) diagonal FHD IPS eDP BrightView WLED-backlit slim touch screen, 250 nits, 45% NTSC (1920 x 1080)\nPackaging: Boxed`
   },
@@ -42,7 +42,7 @@ const products = [
     name: "Lenovo ThinkPad T480 Intel Core i5 8th Gen 8GB RAM 256GB SSD 14 Inches HD Monitor",
     price: 30000,
     category: ["New Deals", "Refurbished Deals", "Laptops"],
-    image: "public/products/Lenovo-ThinkPad-T480.webp",
+    image: "products/Lenovo-ThinkPad-T480.webp",
     description: `
     Operating system: Windows 10/11 Pro – 64 Bit Edition
     Memory: 8GB DDR4 – 2400MHz SDRAM (1 x 8GB) | Up to 32GB DDR4 Memory
@@ -58,7 +58,7 @@ const products = [
     name: `Lenovo ThinkPad T470 Intel Core i5-7350U 8GB RAM 500GB HDD 14" FHD Display`,
     price: 28000,
     category: ["New Deals", "Refurbished Deals", "Laptops"],
-    image: "public/products/lenovo t470.webp",
+    image: "./products/lenovo t470.webp",
     description: `
     Brand: Lenovo
     Model: ThinkPad T470
@@ -77,7 +77,7 @@ const products = [
     name: `HP ProBook 11 G2 Intel Celeron 11.6" 4GB DDR4 RAM 500GB HDD`,
     price: 17000,
     category: ["New Deals", "Refurbished Deals", "Laptops"],
-    image: "public/products/HP probook 11 G2.webp",
+    image: "./products/HP probook 11 G2.webp",
     description:`
     Display Size (in): 11.6
     Operating System: Windows 10
@@ -91,7 +91,7 @@ const products = [
     name: `HP EliteBook x360 1030 G3 Intel Core i7 8th Gen 8GB RAM 512GB SSD 13.3 Inches FHD Touchscreen Display`,
     price: 50000,
     category: ["New Deals", "Refurbished Deals", "Laptops"],
-    image: "public/products/HP-EliteBook-x360-1030-G3.webp",
+    image: "./products/HP-EliteBook-x360-1030-G3.webp",
     description: `
     Operating system: Windows 10 Pro 64-Bit Edition
     Memory: 8GB
@@ -107,7 +107,7 @@ const products = [
     name: `HP EliteBook 830 G6 Intel Core i5 8th Gen 8GB RAM 256GB SSD 13.3 Inch FHD Display`,
     price: 35000,
     category: ["New Deals", "Refurbished Deals", "Laptops"],
-    image: "public/products/HP-EliteBook 830 G6.webp",
+    image: "./products/HP-EliteBook 830 G6.webp",
     description: `Operating system: Windows 10/11 Pro 64-Bit Edition
     Memory: 8GB DDR4 – 2400MHz SDRAM | Up to 32GB
     Storage: 256GB M.2 SATA SED SSD
@@ -120,7 +120,7 @@ const products = [
     name: `Hp EliteBook 820 G3 Core i5 8GB Ram- 256gb SSD`,
     price: 22000,
     category: ["New Deals", "Refurbished Deals", "Laptops"],
-    image: "public/products/Hp elite book 820 g3.webp",
+    image: "./products/Hp elite book 820 g3.webp",
     description: `Intel i5-6200U 2.4GHz 3MB Cache
     8GB RAM
     256 GB Solid State Drive
@@ -139,7 +139,7 @@ const products = [
     name: `Hp 840 G3 Laptop Core i5 6th Gen 8GB Ram 256GB SSD`,
     price: 24000,
     category: ["New Deals", "Refurbished Deals", "Laptops"],
-    image: "public/products/Hp-Elitebook-840-G3-Intel-Core-i7-6th-Generation-8GB-RAM-256GB-SSD-14-Inches-FHD-Display-3-1.webp",
+    image: "./products/Hp-Elitebook-840-G3-Intel-Core-i7-6th-Generation-8GB-RAM-256GB-SSD-14-Inches-FHD-Display-3-1.webp",
     description: `Model: Hp Elitebook 840 G3
     CPU:  Intel Core i5 (6th Gen) 6300U / 2.3GHz
     Max Turbo Speed:  2.8 GHz
