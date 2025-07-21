@@ -5,6 +5,7 @@ import products from './data/products';
 import './App.css';
 import Banner from './components/Banner';
 import Footer from './components/Footer';
+import Brands from './components/Brands';
 
 function App() {
   const [selectedCategories, setSelectedCategories] = useState([]);
@@ -17,7 +18,7 @@ function App() {
       : true;
 
     const matchesCategory = selectedCategories.length > 0
-      ? selectedCategories.some(cat => product.categories?.includes(cat))
+      ? selectedCategories.some(cat => product.category?.includes(cat))
       : true;
 
     return matchesSearch && matchesCategory;
@@ -53,9 +54,9 @@ function App() {
       {(searchQuery || selectedCategories.length > 0) && (
         <div className="filter-info">
           {selectedCategories.length > 0 ? (
-            <h2 className="filter-title">Categories: {selectedCategories.join(', ')}</h2>
+            <div className="filter-title">Categories: {selectedCategories.join(', ')}</div>
           ) : (
-            <h2 className="filter-title">Search: "{searchQuery}"</h2>
+            <div className="filter-title">Search: "{searchQuery}"</div>
           )}
         </div>
       )}
@@ -66,6 +67,9 @@ function App() {
       ) : (
         <p className="no-products">No products found.</p>
       )}
+
+      <Brands /> 
+
       <Footer />
     </div>
   );

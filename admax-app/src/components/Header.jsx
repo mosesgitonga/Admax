@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import CategoryList from "./CategoryList";
@@ -24,10 +23,6 @@ function Header({ onCategorySelect, selectedCategories, onSearch }) {
                   />
                 </div>
               </h1>
-              <div className="search-bar-wrapper">
-                <SearchBar onSearch={onSearch} />
-              </div>
-
               <nav className="nav-menu desktop-nav" aria-label="Main navigation">
                 <ul className="nav-list">
                   <li><a href="/" className="nav-link">Home</a></li>
@@ -47,15 +42,18 @@ function Header({ onCategorySelect, selectedCategories, onSearch }) {
             </button>
           </div>
 
+          <div className="search-bar-wrapper">
+            <SearchBar onSearch={onSearch} />
+          </div>
         </div>
 
         {isMenuOpen && (
           <div className="mobile-nav-container">
             <nav className="nav-menu mobile-nav" aria-label="Mobile navigation">
               <ul className="nav-list vertical">
-                <li><a href="/" className="nav-link" onClick={toggleMenu}>Home</a></li>
-                <li><a href="/about" className="nav-link" onClick={toggleMenu}>About</a></li>
-                <li><a href="/contact" className="nav-link" onClick={toggleMenu}>Contact</a></li>
+                <li><a href="#" className="nav-link" onClick={toggleMenu}>Home</a></li>
+                <li><a href="#about" className="nav-link" onClick={toggleMenu}>About</a></li>
+                <li><a href="#contact" className="nav-link" onClick={toggleMenu}>Contact</a></li>
               </ul>
             </nav>
           </div>

@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+.brands-section {
+  @apply py-4 bg-gray-50;
+  font-family: "Inter", sans-serif;
+}
+
+.brands-container {
+  @apply max-w-7xl mx-auto px-4 overflow-hidden;
+}
+
+.brands-marquee {
+  display: flex;
+  width: max-content; /* Allows content to exceed container width */
+  animation: marquee 15s linear infinite; /* Slower animation (15s) */
+  justify-content: flex-end; /* Start images from the right */
+}
+
+.brand-image {
+  @apply h-24; /* Larger images, no horizontal margin */
+  object-fit: contain; /* Preserve image aspect ratio */
+}
+
+/* Animation keyframes */
+@keyframes marquee {
+  0% {
+    transform: translateX(100%); /* Start from the right edge */
+  }
+  100% {
+    transform: translateX(-100%); /* Move to the left edge */
+  }
+}
+
+/* Pause animation on hover */
+.brands-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .brand-image {
+    @apply h-20; /* Larger images, no horizontal margin */
+  }
+}
+
+@media (max-width: 576px) {
+  .brand-image {
+    @apply h-16; /* Larger images, no horizontal margin */
+  }
+}
