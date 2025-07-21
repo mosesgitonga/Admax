@@ -17,7 +17,7 @@
 }
 
 .brand-image {
-  @apply h-24; /* Larger images, no horizontal margin */
+  @apply h-24 mx-4; /* Larger images with horizontal spacing */
   object-fit: contain; /* Preserve image aspect ratio */
 }
 
@@ -39,12 +39,12 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .brand-image {
-    @apply h-20; /* Larger images, no horizontal margin */
+    @apply h-20 mx-3; /* Larger images with slightly smaller spacing */
   }
 }
 
 @media (max-width: 576px) {
   .brand-image {
-    @apply h-16; /* Larger images, no horizontal margin */
+    @apply h-16 mx-2; /* Larger images with tighter spacing */
   }
 }
